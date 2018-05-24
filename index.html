@@ -262,6 +262,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/Java 继承(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XuHeng Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/24/Java 继承(1)/" itemprop="url">Java笔记——继承</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T09:53:00+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="继承，多态"><a href="#继承，多态" class="headerlink" title="继承，多态"></a>继承，多态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Subclass extends Superclass&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）其中Subclass为子类，extends为继承关键字，Superclass为父类。<br>（2）在继承中，子类可以看作父类的一个子集。<br>（3）Java中只能单一继承，不支持多重继承，但可以多层继承。</p>
+<h3 id="父类成员的隐藏"><a href="#父类成员的隐藏" class="headerlink" title="父类成员的隐藏"></a>父类成员的隐藏</h3><p>子类和父类中出现同名的变量和方法时，调用时默认使用子类中的成员（就近）。若想调用父类中的成员，则需要引入super关键字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">super.([参数列表])</span><br><span class="line">super.父类成员变量</span><br><span class="line">super.父类方法</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><p>子类中出现与父类同名的方法</p>
+<p>原因：方法操作相同，但父类中的该方法已经满足不了子类中对该操作的要求。</p>
+<p>原则：<br>（1）方法名，返回类型，参数列表一摸一样。<br>（2）重写后的方法不能有更严格的保护权限。<br>（3）重写后的方法不能产生更多异常。  </p>
+<p>问题：<br>子类构造方法会有先调用父类中无参的构造方法。<br>解决办法:<br>（1）在父类中重载一个无参的构造方法。<br>（2）在子类构造方法的第一句添加super.([参数列表])手动调用父类中无参的构造方法。  </p>
+<p>注意：super处取什么实参取决于父类构造方法中的型参。</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态性：由于方法重载和覆盖引起的方法同名不同功能现象。</p>
+<p>分类：静态多态性和动态多态性</p>
+<p>静态(编译时)多态性：方法重载，如println方法</p>
+<p>动态(运行时)多态性：多个子类继承同一个父类，并各自重写父类的方法，那么运行时可以完成不同的功能。</p>
+<h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">形状类Shape有一个计算周长的方法perimeter()，由于有不同形状的图形，</span></span><br><span class="line"><span class="comment">perimeter不能具体实现。而三角形ShapeTringle、矩形ShapeRectangle和</span></span><br><span class="line"><span class="comment">圆形ShapeCircle派生自Shape，那么它们分别定义各自的perimeter()方法</span></span><br><span class="line"><span class="comment">实现计算周长。具体应用时，根据创建的类对象调用对应的perimeter()方法。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTringle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> side1,side2,side3;</span><br><span class="line">   ShapeTringle()&#123;</span><br><span class="line">      <span class="keyword">this</span>.side1=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.side2=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.side3=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeTringle(<span class="keyword">int</span> side1,<span class="keyword">int</span> side2,<span class="keyword">int</span> side3)&#123;</span><br><span class="line">      <span class="keyword">this</span>.side1=side1;</span><br><span class="line">      <span class="keyword">this</span>.side2=side2;</span><br><span class="line">      <span class="keyword">this</span>.side3=side3;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(side1+side2+side3);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeRectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> width,height;</span><br><span class="line">   ShapeRectangle()&#123;</span><br><span class="line">      <span class="keyword">this</span>.width=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.height=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeRectangle(<span class="keyword">int</span> width,<span class="keyword">int</span> height)&#123;</span><br><span class="line">      <span class="keyword">this</span>.width=width;</span><br><span class="line">      <span class="keyword">this</span>.height=height;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(<span class="number">2</span>*(width+height));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeCircle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> radius;</span><br><span class="line">   ShapeCircle()&#123;</span><br><span class="line">      radius=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeCircle(<span class="keyword">int</span> radius)&#123;</span><br><span class="line">      <span class="keyword">this</span>.radius=radius;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(radius*<span class="number">3.14</span>*<span class="number">2</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTest</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      Shape aTringle=<span class="keyword">new</span> ShapeTringle(<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">      Shape aCircle=<span class="keyword">new</span> ShapeCircle(<span class="number">10</span>);</span><br><span class="line">      System.out.println(aTringle.perimeter());</span><br><span class="line">      System.out.println(aCircle.perimeter());</span><br><span class="line">      testInstance(aTringle);</span><br><span class="line">      testInstance(aCircle);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testInstance</span><span class="params">(Shape aObject)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (aObject <span class="keyword">instanceof</span> ShapeCircle)</span><br><span class="line">         System.out.println(<span class="string">"A Circle"</span>);</span><br><span class="line">      <span class="keyword">if</span> (aObject <span class="keyword">instanceof</span> ShapeTringle)</span><br><span class="line">         System.out.println(<span class="string">"A Tringle"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="上转型对象"><a href="#上转型对象" class="headerlink" title="上转型对象"></a>上转型对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shape aTringle=<span class="keyword">new</span> ShapeTringle(<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>只能访问父类和子类共有的成员</p>
+<h2 id="其他关键字"><a href="#其他关键字" class="headerlink" title="其他关键字"></a>其他关键字</h2><h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> 变量：变量</span><br><span class="line"><span class="keyword">final</span> 方法：不可被重写</span><br><span class="line"><span class="keyword">final</span> 类：不能被继承</span><br></pre></td></tr></table></figure>
+<h4 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h4><p>（1）类方法只能访问类成员<br>（2）类成员共享类变量<br>（3）类成员可以由类名调用<br>（4）类方法中不可以使用this关键字，super关键字</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Html——认识Html(1)(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -750,7 +908,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
