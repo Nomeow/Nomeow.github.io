@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="问题：Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。 解决方法：将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。 包1.定义：放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。 2.package语句：用package语句定义类所在的包。格式为：   代码高亮1package  p">
+<meta name="description" content="Object类：  java中所有类的父类。   可以使用Object类型的变量引用任何类型的对象，但若想对其中的值进行操作还需要搞清对象的原始类型，并进行相应的类型转换。12Object obj = new Point(1,1);Point p = (Point)obj; Object类中的方法   equals方法equals方法用来检测一个对象是否等于另一个对象。12345/*JDK源代码*">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java笔记——包">
-<meta property="og:url" content="http://yoursite.com/2018/05/21/Java 包/index.html">
+<meta property="og:title" content="Java笔记——Object类">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/java object类n/index.html">
 <meta property="og:site_name" content="杏仁没有猫">
-<meta property="og:description" content="问题：Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。 解决方法：将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。 包1.定义：放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。 2.package语句：用package语句定义类所在的包。格式为：   代码高亮1package  p">
+<meta property="og:description" content="Object类：  java中所有类的父类。   可以使用Object类型的变量引用任何类型的对象，但若想对其中的值进行操作还需要搞清对象的原始类型，并进行相应的类型转换。12Object obj = new Point(1,1);Point p = (Point)obj; Object类中的方法   equals方法equals方法用来检测一个对象是否等于另一个对象。12345/*JDK源代码*">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T10:21:12.237Z">
+<meta property="og:updated_time" content="2018-05-28T10:58:57.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java笔记——包">
-<meta name="twitter:description" content="问题：Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。 解决方法：将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。 包1.定义：放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。 2.package语句：用package语句定义类所在的包。格式为：   代码高亮1package  p">
+<meta name="twitter:title" content="Java笔记——Object类">
+<meta name="twitter:description" content="Object类：  java中所有类的父类。   可以使用Object类型的变量引用任何类型的对象，但若想对其中的值进行操作还需要搞清对象的原始类型，并进行相应的类型转换。12Object obj = new Point(1,1);Point p = (Point)obj; Object类中的方法   equals方法equals方法用来检测一个对象是否等于另一个对象。12345/*JDK源代码*">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/21/Java 包/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/28/java object类n/"/>
 
 
 
 
 
-  <title>Java笔记——包 | 杏仁没有猫</title>
+  <title>Java笔记——Object类 | 杏仁没有猫</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Java 包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/java object类n/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="XuHeng Xie">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java笔记——包</h1>
+          <h1 class="post-title" itemprop="name headline">Java笔记——Object类</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T17:56:00+08:00">
-                2018-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T18:53:00+08:00">
+                2018-05-28
               </time>
             
 
@@ -352,19 +352,13 @@
       
 
       
-        <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。</p>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><h4 id="1-定义："><a href="#1-定义：" class="headerlink" title="1.定义："></a>1.定义：</h4><p>放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。</p>
-<h4 id="2-package语句："><a href="#2-package语句：" class="headerlink" title="2.package语句："></a>2.package语句：</h4><p>用package语句定义类所在的包。格式为：  </p>
-<h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  pkg1[.pkg2[.pkg3…]];</span><br></pre></td></tr></table></figure>
-<p>注意：<br>（1）如果用package语句，它必须是源程序中的第一条语句；<br>（2）含有package语句的源程序中所有的类都属于该包；<br>（3）不能指定到文件上，如”package p1.SameName”只能说明后续的类是p1.SameName包中的类；<br>（4）编译包含该语句的Java程序后，需要将编译生成的所有的class文件拷贝到当前目录下的pkg1\pkg2\pkg3…目录内，否则不能正确访问这些类；<br>（5）包名与源程序的编译没有任何关系，只在运行类和实例化类时起作用；<br>（6）包在命名时应该全小写；<br>（7）包的名字应该与类的名字相异。</p>
-<h4 id="3-import语句："><a href="#3-import语句：" class="headerlink" title="3.import语句："></a>3.import语句：</h4><p>import语句用于引入需要的包。一般格式为：</p>
-<h4 id="代码高亮-1"><a href="#代码高亮-1" class="headerlink" title="代码高亮"></a>代码高亮</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>   pkg1[.pkg2[.pkg3…]].classname|*;</span><br></pre></td></tr></table></figure>
-<p> 其中<br>（1）*表示同一个包中的所有类；<br>（2）可以一次只引入包中的一个类。  </p>
-<p>注意：<br>（1）如果不用import语句，需要在使用类的地方书写完整的包名，所以一般不采用这种方法。</p>
-<p>（2）如果要直接运行属于某个包中的类，必须写出完整的包名，如：<br>Java p1.p2.SameName</p>
-<p>（3）import只能导入包中的类，不能导入包中的包。</p>
-<h4 id="把一个类放到包中再执行的过程"><a href="#把一个类放到包中再执行的过程" class="headerlink" title="把一个类放到包中再执行的过程"></a>把一个类放到包中再执行的过程</h4><p>1.源代码第一行加入package语句。<br>2.编译的时候使用 -d 选项（如： javac -d . A.java）<br>3.运行包中的类时应使用完整类名。</p>
+        <p>Object类：  java中所有类的父类。  </p>
+<p>可以使用Object类型的变量引用任何类型的对象，但若想对其中的值进行操作还需要搞清对象的原始类型，并进行相应的类型转换。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">Point p = (Point)obj;</span><br></pre></td></tr></table></figure></p>
+<p>Object类中的方法  </p>
+<h2 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h2><p>equals方法用来检测一个对象是否等于另一个对象。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JDK源代码*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>“==”比较的是内存地址，所以含有复合型数据的实例变量再调用equals时应根据需求对equals()进行重写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object arg()</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Circle c = (Circle)arg();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.radius == c.getRadius()&amp;&amp;center.getX()==getCenter.getX()&amp;&amp;center.getY()==getCenter.getY())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：对简单数据类型进行封装的Boolean、Byte、Char、Short、Integer、Long、Float、Double以及String，Date，File类把equals方法重写为判断 值 是否相等。</p>
+<h2 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h2><p>toString方法用来返回对象的字符串表示<br>在直接输出一个对象时，该对象自动调用toString方法，有时这个方法需要根据要求重写。</p>
 
       
     </div>
@@ -395,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/19/词法分析器/" rel="next" title="词法分析">
-                <i class="fa fa-chevron-left"></i> 词法分析
+              <a href="/2018/05/25/java实验/" rel="next" title="Java实验">
+                <i class="fa fa-chevron-left"></i> Java实验
               </a>
             
           </div>
@@ -405,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/21/Html——认识Html(1)(1)/" rel="prev" title="Html笔记——初识">
-                Html笔记——初识 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/28/java抽象类/" rel="prev" title="Java笔记——抽象类">
+                Java笔记——抽象类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法："><span class="nav-number">2.</span> <span class="nav-text">解决方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-number"></span> <span class="nav-text">包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-定义："><span class="nav-number">1.</span> <span class="nav-text">1.定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-package语句："><span class="nav-number">2.</span> <span class="nav-text">2.package语句：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码高亮"><span class="nav-number"></span> <span class="nav-text">代码高亮</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-import语句："><span class="nav-number">1.</span> <span class="nav-text">3.import语句：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码高亮-1"><span class="nav-number">2.</span> <span class="nav-text">代码高亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把一个类放到包中再执行的过程"><span class="nav-number">3.</span> <span class="nav-text">把一个类放到包中再执行的过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#equals方法"><span class="nav-number">1.</span> <span class="nav-text">equals方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toString方法"><span class="nav-number">2.</span> <span class="nav-text">toString方法</span></a></li></ol></div>
             
 
           </div>
