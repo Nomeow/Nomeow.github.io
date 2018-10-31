@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="卡拉兹(Callatz)猜想： 对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步 得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题， 结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与">
+<meta name="description" content="题目描述有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？ 输入描述:输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。 输出描述:对于每个测试实例，输出在第n年的时候母牛的数量。每个输出占一行。 输入例子:245 输出例子:246 12345678910">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT乙级练习——1033 害死人不偿命的(3n+1)猜想">
-<meta property="og:url" content="http://yoursite.com/2018/10/29/pat乙级1033/index.html">
+<meta property="og:title" content="PAT乙级练习——1007 母牛的故事">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/pat乙级1007/index.html">
 <meta property="og:site_name" content="杏仁没有猫">
-<meta property="og:description" content="卡拉兹(Callatz)猜想： 对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步 得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题， 结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与">
+<meta property="og:description" content="题目描述有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？ 输入描述:输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。 输出描述:对于每个测试实例，输出在第n年的时候母牛的数量。每个输出占一行。 输入例子:245 输出例子:246 12345678910">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-29T14:17:39.803Z">
+<meta property="og:updated_time" content="2018-10-31T13:58:56.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT乙级练习——1033 害死人不偿命的(3n+1)猜想">
-<meta name="twitter:description" content="卡拉兹(Callatz)猜想： 对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步 得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题， 结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与">
+<meta name="twitter:title" content="PAT乙级练习——1007 母牛的故事">
+<meta name="twitter:description" content="题目描述有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？ 输入描述:输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。 输出描述:对于每个测试实例，输出在第n年的时候母牛的数量。每个输出占一行。 输入例子:245 输出例子:246 12345678910">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/29/pat乙级1033/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/31/pat乙级1007/"/>
 
 
 
 
 
-  <title>PAT乙级练习——1033 害死人不偿命的(3n+1)猜想 | 杏仁没有猫</title>
+  <title>PAT乙级练习——1007 母牛的故事 | 杏仁没有猫</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/pat乙级1033/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1007/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingren Lingjun">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PAT乙级练习——1033 害死人不偿命的(3n+1)猜想</h1>
+          <h1 class="post-title" itemprop="name headline">PAT乙级练习——1007 母牛的故事</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T18:59:00+08:00">
-                2018-10-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
+                2018-10-31
               </time>
             
 
@@ -352,13 +352,13 @@
       
 
       
-        <p>卡拉兹(Callatz)猜想：</p>
-<p>对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步</p>
-<p>得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，</p>
-<p>结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
-<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过1000的正整数n，简单地数一下，需要多少步（砍几下）才能得到n=1？<br>输入描述:<br>每个测试输入包含1个测试用例，即给出自然数n的值。</p>
-<p>输出描述:<br>输出从n计算到1需要的步数。<br>示例1<br>输入<br>3<br>输出<br>5</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1033_1_</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            int i = 0;</span><br><span class="line">            int num = int.Parse(Console.ReadLine());</span><br><span class="line">            while (num != 1)</span><br><span class="line">            &#123;</span><br><span class="line">                if (num % 2 == 0)</span><br><span class="line">                &#123; num = num / 2; &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123; num = (3 * num + 1) / 2; &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            Console.Write(i);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>题目描述<br>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
+<p>输入描述:<br>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。</p>
+<p>输出描述:<br>对于每个测试实例，输出在第n年的时候母牛的数量。<br>每个输出占一行。</p>
+<p>输入例子:<br>2<br>4<br>5</p>
+<p>输出例子:<br>2<br>4<br>6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1007</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            while (true)</span><br><span class="line">            &#123;</span><br><span class="line">                var s = Console.ReadLine();</span><br><span class="line">                if (String.IsNullOrEmpty(s))</span><br><span class="line">                    break;</span><br><span class="line">                int n = int.Parse(s);</span><br><span class="line">                long[] num = new long[56];</span><br><span class="line">                num[1] = 1;</span><br><span class="line">                num[2] = 2;</span><br><span class="line">                num[3] = 3;</span><br><span class="line">                for (int i = 4  ; i &lt; 56; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    num[i] = num[i - 1] + num[i-3];</span><br><span class="line">                &#125;</span><br><span class="line">                Console.WriteLine(num[n]);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：<br>每一年牛的数量等于去年的牛的数量，加上今年能生小牛的牛的数量  </p>
 
       
     </div>
@@ -389,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/29/简单记事本/" rel="next" title="Java实验——简单记事本">
-                <i class="fa fa-chevron-left"></i> Java实验——简单记事本
+              <a href="/2018/10/31/pat乙级1008/" rel="next" title="PAT乙级练习——1008 童年二三事">
+                <i class="fa fa-chevron-left"></i> PAT乙级练习——1008 童年二三事
               </a>
             
           </div>
@@ -398,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/29/pat乙级1038/" rel="prev" title="PAT乙级练习——1038 换个格式输出整数">
-                PAT乙级练习——1038 换个格式输出整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
