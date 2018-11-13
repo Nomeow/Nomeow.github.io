@@ -262,6 +262,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/29/C#面向对象/" itemprop="url">C#笔记——面向对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="类："><a href="#类：" class="headerlink" title="类："></a>类：</h1><p>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
+<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么） </p>
+<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
+<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>用于描述类的特征。属性通常带有get和set访问器，get用来获取属性的值，set用来设置属性的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Student</span><br><span class="line">&#123;</span><br><span class="line">    String name;</span><br><span class="line">    </span><br><span class="line">    public String Name</span><br><span class="line">    &#123;</span><br><span class="line">        get&#123;return this.name;&#125;</span><br><span class="line">        set&#123;this.name = value;&#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如想让属性变为只读，则可以去掉set访问器，只保留get访问器。</p>
+<p>字段是真正存储数值的变量，属性只是对外公开的窗口。</p>
+<p>如果属性值不需要特殊处理则可以简化为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public String Name&#123;get；set;&#125;</span><br></pre></td></tr></table></figure>
+<p>若希望在声明属性时设置默认值，可以在属性声明后直接赋值。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数与析构函数"><a href="#构造函数与析构函数" class="headerlink" title="构造函数与析构函数"></a>构造函数与析构函数</h3><p>构造函数在创建类的实例时被调用，他：<br>（1）名称必须与类名相同<br>（2）没有返回值<br>（3）默认构造函数无参数，但也可以定义参数  </p>
+<p>析构函数以“~”开头，无返回值，后紧跟类名，无参数。他在资源被销毁是被调用。</p>
+<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>结构与类比较相似，同样包含字段属性方法。但是：<br>（1）结构只能声明带参数的构造函数。<br>（2）结构不能进行继承和派生，但可以实现接口。<br>（3）结构在实例化时可以忽略new关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct Pet</span><br><span class="line">&#123;</span><br><span class="line">    public String name;</span><br><span class="line">    public int age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pet pet;</span><br><span class="line">pet.name = &quot;Tom&quot;;</span><br><span class="line">pet.age = 3;</span><br></pre></td></tr></table></figure>
+<h1 id="引用类型与值类型"><a href="#引用类型与值类型" class="headerlink" title="引用类型与值类型"></a>引用类型与值类型</h1><p>类是引用类型，结构是值类型</p>
+<h1 id="ref参数与out参数"><a href="#ref参数与out参数" class="headerlink" title="ref参数与out参数"></a>ref参数与out参数</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1651,7 +1817,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1662,7 +1828,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1673,7 +1839,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
