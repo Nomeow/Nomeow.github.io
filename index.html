@@ -262,6 +262,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/mysql,zsgc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/12/mysql,zsgc/" itemprop="url">MySQL初见——增删改查</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-12T20:06:00+08:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="增添"><a href="#增添" class="headerlink" title="增添"></a>增添</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into dtname(parameter0,parameter1,...)values(&apos;value0&apos;,&apos;value1&apos;,...);</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into t_stu(stuname,stugender,birthady) values(&apos;neusoft&apos;,&apos;male&apos;,&apos;1998-10-01&apos;);</span><br></pre></td></tr></table></figure>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>提醒：对数据库操作前记得备份！！！  </p>
+<p>全删</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from dtname;</span><br></pre></td></tr></table></figure>
+<p>按条件删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from dtname where parameter=&apos;value0&apos;;</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from t_stu where stuname=&apos;tom&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update dtname set parameter0=&apos;value0&apos; where parameter1=&apos;value1&apos;;</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update t_stu set stuname=&apos;tom&apos; where id=1;</span><br></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>（1）查询语句中可以使用一个或者多个表，表之间使用逗号(,)分割，并使用WHERE语句来设定查询条件。<br>（2）SELECT 命令可以读取一条或者多条记录。<br>（3）可以使用星号（*）来代替其他字段，SELECT语句会返回表的所有字段数据<br>（4）可以使用 WHERE 语句来包含任何条件。<br>（5）可以使用 LIMIT 属性来设定返回的记录数。<br>（6）可以通过OFFSET指定SELECT语句开始查询的数据偏移量。默认情况下偏移量为0。</p>
+<p>打印所有内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from dtname;</span><br></pre></td></tr></table></figure>
+<p>选择表中的某几列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select parameter0,parameter1,... from dtname;</span><br></pre></td></tr></table></figure></p>
+<p>按条件查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select parameter0，parameter1，... from dtname where parameter0=value0;</span><br></pre></td></tr></table></figure></p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select stuname,stugender from t_stu where stuname=&apos;tom&apos;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/pat乙级1030/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,154 +743,6 @@ public static void Main(string[] args)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1007/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/pat乙级1007/" itemprop="url">PAT乙级练习——1007 母牛的故事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目描述<br>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
-<p>输入描述:<br>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。</p>
-<p>输出描述:<br>对于每个测试实例，输出在第n年的时候母牛的数量。<br>每个输出占一行。</p>
-<p>输入例子:<br>2<br>4<br>5</p>
-<p>输出例子:<br>2<br>4<br>6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1007</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            while (true)</span><br><span class="line">            &#123;</span><br><span class="line">                var s = Console.ReadLine();</span><br><span class="line">                if (String.IsNullOrEmpty(s))</span><br><span class="line">                    break;</span><br><span class="line">                int n = int.Parse(s);</span><br><span class="line">                long[] num = new long[56];</span><br><span class="line">                num[1] = 1;</span><br><span class="line">                num[2] = 2;</span><br><span class="line">                num[3] = 3;</span><br><span class="line">                for (int i = 4  ; i &lt; 56; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    num[i] = num[i - 1] + num[i-3];</span><br><span class="line">                &#125;</span><br><span class="line">                Console.WriteLine(num[n]);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：<br>每一年牛的数量等于去年的牛的数量，加上今年能生小牛的牛的数量  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1036/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -832,6 +845,154 @@ public static void Main(string[] args)
 <p>输出例子:<br>Mike CS991301<br>Joe Math990112</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1036</span><br><span class="line">&#123;   class Student</span><br><span class="line">    &#123;</span><br><span class="line">        public String name&#123;get;set;&#125;</span><br><span class="line">        public String student_number &#123; get; set; &#125;</span><br><span class="line">        public int score &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">        public Student(String name,String student_number,int score)</span><br><span class="line">        &#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.student_number = student_number;</span><br><span class="line">            this.score = score;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Program a = new Program();</span><br><span class="line">            var s = Console.ReadLine();</span><br><span class="line">            int n = int.Parse(s);</span><br><span class="line">            String n1, n2;</span><br><span class="line">            int n3;</span><br><span class="line">            </span><br><span class="line">            List&lt;Student&gt; studentlist = new List&lt;Student&gt;(); </span><br><span class="line">            for (int i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                string str = Console.ReadLine();</span><br><span class="line">                String[] slist = str.Split(&apos; &apos;);</span><br><span class="line">                n1 = slist[0];</span><br><span class="line">                n2 = slist[1];</span><br><span class="line">                n3 = int.Parse(slist[2]);</span><br><span class="line">                Student stu = new Student(n1,n2,n3);</span><br><span class="line">                studentlist.Add(stu);</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">             studentlist.Sort((left, right) =&gt;</span><br><span class="line">              &#123;</span><br><span class="line">                  if (left.score &gt; right.score)</span><br><span class="line">                      return 1;</span><br><span class="line">                  else if (left.score == right.score)</span><br><span class="line">                      return 0;</span><br><span class="line">                  else</span><br><span class="line">                      return -1;</span><br><span class="line">              &#125;);</span><br><span class="line">            </span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;,studentlist[n - 1].name,studentlist[n - 1].student_number);</span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;, studentlist[0].name, studentlist[0].student_number);</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意：List的使用会在另外的文章中总结。  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1007/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/pat乙级1007/" itemprop="url">PAT乙级练习——1007 母牛的故事</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述<br>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
+<p>输入描述:<br>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。</p>
+<p>输出描述:<br>对于每个测试实例，输出在第n年的时候母牛的数量。<br>每个输出占一行。</p>
+<p>输入例子:<br>2<br>4<br>5</p>
+<p>输出例子:<br>2<br>4<br>6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1007</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            while (true)</span><br><span class="line">            &#123;</span><br><span class="line">                var s = Console.ReadLine();</span><br><span class="line">                if (String.IsNullOrEmpty(s))</span><br><span class="line">                    break;</span><br><span class="line">                int n = int.Parse(s);</span><br><span class="line">                long[] num = new long[56];</span><br><span class="line">                num[1] = 1;</span><br><span class="line">                num[2] = 2;</span><br><span class="line">                num[3] = 3;</span><br><span class="line">                for (int i = 4  ; i &lt; 56; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    num[i] = num[i - 1] + num[i-3];</span><br><span class="line">                &#125;</span><br><span class="line">                Console.WriteLine(num[n]);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：<br>每一年牛的数量等于去年的牛的数量，加上今年能生小牛的牛的数量  </p>
 
           
         
@@ -1605,169 +1766,11 @@ public static void Main(string[] args)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/对海高的碎碎念/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/24/对海高的碎碎念/" itemprop="url">对海高的碎碎念</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T10:53:00+08:00">
-                2018-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>…<br>寻梦？撑一支长篙，</p>
-<p>　　向青草更青处漫溯；</p>
-<p>　　满载一船星辉，</p>
-<p>　　在星辉斑斓里放歌。</p>
-<p>　　但我不能放歌，</p>
-<p>　　悄悄是别离的笙箫；</p>
-<p>　　夏虫也为我沉默，</p>
-<p>　　沉默是今晚的康桥！</p>
-<p>　　悄悄的我走了，</p>
-<p>　　正如我悄悄的来；</p>
-<p>　　我挥一挥衣袖，</p>
-<p>不带走一片云彩。</p>
-<p>这首新月诗派最具代表性的作品创作于1928年，九十年后的2018年，我坐在这里为已挥别两年的海高写下这篇文字。</p>
-<p>诗人游学剑桥时曾满怀深情地说：“我的眼是康桥叫我睁的，我的求知欲是康桥给我拨动的，我的自我意识是康桥给我胚胎的。”而我已可以说：“我的眼是母亲教我睁的，我的求知欲是海高给我拨动的，我的自我意识是老师给我胚胎的”<br>喜欢这首《再别康桥》已经很久了，读到这首诗的时候就更久了，久到还是刚上高中的时候，久到才上过高中第五节语文课的时候，久到大家还读不出来我的名字的时候。在学过《再别康桥》的那几天，在阳光漫射去的晨路上，在路灯晕染过的归途中，边走边在心中默诵这首诗。悄悄地我走了，不带走一片云彩，我来海高三年，未曾在学校里留下一点痕迹，未能在某个展板的角落里展示自己未曾存在过的骄傲战绩，也许在海高的下一个三十年，下下个三十年。只要提到“谢旭”二字，人们想起的绝不会是那个拗口又难认的“珩”字。只得借济慈的墓志铭：“我把名字写在水上”来安慰自己。没能在母校添上自己的一笔，但在梦开始的地方的各种感动，叛逆，辛苦，和惊喜还有每一位师长同学，注定在我心中留下了美好的回忆。三年修行结束，正像是许嵩在《如约而至》里的那句“人生看似偶然却又必经的告别”在高一的入学典礼上没有人会考虑自己三年后的样子，即便有也只是一串理想大学的名字，而三年后的毕业典礼上乃至毕业后的下一次毕业却必定有人在努力的回忆。 </p>
-<p>在大学校园里，语文课对于工科生而言早已被列入通识选修，就是大家心照不宣最不重要的那一类。但我还会时常想起高中语文课上《雷雨》里鲁大海被周朴园开除时周冲那天真的一句“爸爸，这是不公平的。”；还会时常想起一向很少出错的刘亦蒙在把《孔雀东南飞》中的刘兰芝读成刘志兰时的哄堂大笑；还会时常想起大家在思考如何工整的对上“作子修座子”时的苦思冥想；还会时常想起芳芳在黑板上默写古诗出错时自罚的那首《橄榄树》；还会时常想起在高三苦海中徜徉时每周最期待的《一轮明月》和《国宝档案》；还会时常想起高中最后一节语文课上芳芳送给我们的那首《滚滚红尘》,起初不经意的你,和少年不经事的我…分易分，聚难聚，爱与恨的千古愁…时常想起过去我们坐在教室里，熟悉的面孔，相嘻无故爆发出欢喜的笑声，装模做样听那无聊的魔鬼数学，背那自己都不知道有多诡异蹩脚发音的单词，时常想起往昔真切发生的点点滴滴，现在只能出现在记忆里。 </p>
-<p>  在海高，我们奋斗三年，在海高，我们嘻笑三年，在海高，我们离别各自走向天涯海角。我们都年轻，一如既往地按着人人一致而又各具精彩的渠道通向自信满满的未来，一切都还在，高中母校里的那份执着和疯狂压在心灵深处，谁也偷不走。  </p>
-<p>沙扬娜拉。          </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1813,7 +1816,7 @@ public static void Main(string[] args)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1824,7 +1827,7 @@ public static void Main(string[] args)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1835,7 +1838,7 @@ public static void Main(string[] args)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1872,7 +1875,7 @@ public static void Main(string[] args)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
