@@ -262,6 +262,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Java 包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/21/Java 包/" itemprop="url">Java笔记——包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T17:56:00+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。</p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><h4 id="1-定义："><a href="#1-定义：" class="headerlink" title="1.定义："></a>1.定义：</h4><p>放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。</p>
+<h4 id="2-package语句："><a href="#2-package语句：" class="headerlink" title="2.package语句："></a>2.package语句：</h4><p>用package语句定义类所在的包。格式为：  </p>
+<h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  pkg1[.pkg2[.pkg3…]];</span><br></pre></td></tr></table></figure>
+<p>注意：<br>（1）如果用package语句，它必须是源程序中的第一条语句；<br>（2）含有package语句的源程序中所有的类都属于该包；<br>（3）不能指定到文件上，如”package p1.SameName”只能说明后续的类是p1.SameName包中的类；<br>（4）编译包含该语句的Java程序后，需要将编译生成的所有的class文件拷贝到当前目录下的pkg1\pkg2\pkg3…目录内，否则不能正确访问这些类；<br>（5）包名与源程序的编译没有任何关系，只在运行类和实例化类时起作用；<br>（6）包在命名时应该全小写；<br>（7）包的名字应该与类的名字相异。</p>
+<h4 id="3-import语句："><a href="#3-import语句：" class="headerlink" title="3.import语句："></a>3.import语句：</h4><p>import语句用于引入需要的包。一般格式为：</p>
+<h4 id="代码高亮-1"><a href="#代码高亮-1" class="headerlink" title="代码高亮"></a>代码高亮</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>   pkg1[.pkg2[.pkg3…]].classname|*;</span><br></pre></td></tr></table></figure>
+<p> 其中<br>（1）*表示同一个包中的所有类；<br>（2）可以一次只引入包中的一个类。  </p>
+<p>注意：<br>（1）如果不用import语句，需要在使用类的地方书写完整的包名，所以一般不采用这种方法。</p>
+<p>（2）如果要直接运行属于某个包中的类，必须写出完整的包名，如：<br>Java p1.p2.SameName</p>
+<p>（3）import只能导入包中的类，不能导入包中的包。</p>
+<h4 id="把一个类放到包中再执行的过程"><a href="#把一个类放到包中再执行的过程" class="headerlink" title="把一个类放到包中再执行的过程"></a>把一个类放到包中再执行的过程</h4><p>1.源代码第一行加入package语句。<br>2.编译的时候使用 -d 选项（如： javac -d . A.java）<br>3.运行包中的类时应使用完整类名。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/词法分析器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -445,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -456,7 +610,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -467,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

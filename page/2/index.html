@@ -262,6 +262,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/简单记事本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/29/简单记事本/" itemprop="url">Java实验——简单记事本</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T18:53:00+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>EasyFile类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.BorderLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.FilterInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.JFileChooser;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenu;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuBar;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuItem;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JOptionPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JScrollPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JTextArea;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*</span><br><span class="line">;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EasyFile</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    JFileChooser jd;</span><br><span class="line">	StringBuilder Contenct;</span><br><span class="line">	JTextArea jt;</span><br><span class="line">	JFrame jf;</span><br><span class="line">	StringBuilder Path;</span><br><span class="line"> EasyFile()</span><br><span class="line">&#123;</span><br><span class="line">	 Path=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 Contenct=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 </span><br><span class="line">jf=<span class="keyword">new</span> JFrame();</span><br><span class="line">jf.setTitle(<span class="string">"简易文本编辑器"</span>);</span><br><span class="line">jf.setSize(<span class="number">800</span>, <span class="number">500</span>);</span><br><span class="line">jf.setLayout(<span class="keyword">new</span> BorderLayout());</span><br><span class="line"></span><br><span class="line">JMenu jm=<span class="keyword">new</span> JMenu(<span class="string">"文件"</span>) ;     </span><br><span class="line">JMenuItem t1=<span class="keyword">new</span> JMenuItem(<span class="string">"打开"</span>) ;  </span><br><span class="line">JMenuItem t2=<span class="keyword">new</span> JMenuItem(<span class="string">"保存"</span>) ;</span><br><span class="line">JMenuItem t3=<span class="keyword">new</span> JMenuItem(<span class="string">"另存为"</span>) ;</span><br><span class="line">JMenuItem t4=<span class="keyword">new</span> JMenuItem(<span class="string">"退出"</span>) ;</span><br><span class="line"></span><br><span class="line"> jt=<span class="keyword">new</span> JTextArea();</span><br><span class="line">jf.add(jt,BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">JScrollPane jp=<span class="keyword">new</span> JScrollPane();</span><br><span class="line">jp.setViewportView(jt);</span><br><span class="line"></span><br><span class="line">jf.add(jp);</span><br><span class="line">jm.add(t1) ;  </span><br><span class="line">jm.add(t2) ;    </span><br><span class="line">jm.add(t3) ; </span><br><span class="line">jm.addSeparator();</span><br><span class="line">jm.add(t4) ;  </span><br><span class="line">JMenuBar  br=<span class="keyword">new</span>  JMenuBar() ;  </span><br><span class="line">br.add(jm) ;      </span><br><span class="line">jf.setJMenuBar(br) ;  </span><br><span class="line">jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">jd=<span class="keyword">new</span> JFileChooser();</span><br><span class="line">jd.setDialogTitle(<span class="string">"文件选择"</span>);</span><br><span class="line"></span><br><span class="line">t1.addActionListener(<span class="keyword">new</span> ActionListener()</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span></span></span><br><span class="line"><span class="function">	</span>&#123;		      </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (JFileChooser.APPROVE_OPTION == jd.showOpenDialog(jf)) </span><br><span class="line">&#123;</span><br><span class="line">     	Path.setLength(<span class="number">0</span>);</span><br><span class="line">		File f=jd.getSelectedFile();</span><br><span class="line">		jf.setTitle(f.getName());</span><br><span class="line">		Path.append(f.getAbsolutePath());</span><br><span class="line">		System.out.println(Path.toString());</span><br><span class="line">		<span class="keyword">try</span> </span><br><span class="line">		&#123;			 </span><br><span class="line">		   InputStreamReader isr=<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">			 BufferedReader br=<span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">			 String s1=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">while</span>((s1=br.readLine())!=<span class="keyword">null</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				 Contenct.append(s1);</span><br><span class="line">				Contenct.append(<span class="string">"\r\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		    jt.setText(Contenct.toString());</span><br><span class="line">		    Contenct.setLength(<span class="number">0</span>);</span><br><span class="line">			br.close();</span><br><span class="line">		   isr.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e1)</span><br><span class="line">		&#123;	 </span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">			</span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;  </span><br><span class="line">		 </span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t2.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	 </span><br><span class="line">		 <span class="keyword">if</span>(Path.length()&gt;<span class="number">0</span>)</span><br><span class="line">		 &#123;</span><br><span class="line">			 File f=<span class="keyword">new</span> File(Path.toString());</span><br><span class="line">			 jf.setTitle(f.getName());</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				OutputStreamWriter osw=<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 &#123;</span><br><span class="line">			 		 </span><br><span class="line">			 <span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">			 &#123;</span><br><span class="line">				 Path.setLength(<span class="number">0</span>);</span><br><span class="line">				 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">				 </span><br><span class="line">				 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">				 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">				 jf.setTitle(f.getName());</span><br><span class="line">				 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">				 &#123;</span><br><span class="line">					 <span class="keyword">try</span> &#123;</span><br><span class="line">						f.createNewFile();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">				 &#125;</span><br><span class="line"> 					<span class="keyword">try</span> &#123;</span><br><span class="line"> 						OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">						BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">						bw.write(jt.getText());</span><br><span class="line">						bw.close();</span><br><span class="line">						osw.close();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">					 </span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);  </span><br><span class="line">t3.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123; </span><br><span class="line">	<span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">	&#123;</span><br><span class="line">		 Path.setLength(<span class="number">0</span>);</span><br><span class="line">		 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">		 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">		 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">		 jf.setTitle(f.getName());</span><br><span class="line">		 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">		 &#123;</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				f.createNewFile();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		 &#125;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">				</span><br><span class="line">					OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);			 </span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t4.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">		System.exit(<span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FileTest类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		 EasyFile f=<span class="keyword">new</span> EasyFile();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h4><p>未实现退出时提醒用户保存的功能</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/对海高的碎碎念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -372,159 +516,6 @@
 <p>在大学校园里，语文课对于工科生而言早已被列入通识选修，就是大家心照不宣最不重要的那一类。但我还会时常想起高中语文课上《雷雨》里鲁大海被周朴园开除时周冲那天真的一句“爸爸，这是不公平的。”；还会时常想起一向很少出错的刘亦蒙在把《孔雀东南飞》中的刘兰芝读成刘志兰时的哄堂大笑；还会时常想起大家在思考如何工整的对上“作子修座子”时的苦思冥想；还会时常想起芳芳在黑板上默写古诗出错时自罚的那首《橄榄树》；还会时常想起在高三苦海中徜徉时每周最期待的《一轮明月》和《国宝档案》；还会时常想起高中最后一节语文课上芳芳送给我们的那首《滚滚红尘》,起初不经意的你,和少年不经事的我…分易分，聚难聚，爱与恨的千古愁…时常想起过去我们坐在教室里，熟悉的面孔，相嘻无故爆发出欢喜的笑声，装模做样听那无聊的魔鬼数学，背那自己都不知道有多诡异蹩脚发音的单词，时常想起往昔真切发生的点点滴滴，现在只能出现在记忆里。 </p>
 <p>  在海高，我们奋斗三年，在海高，我们嘻笑三年，在海高，我们离别各自走向天涯海角。我们都年轻，一如既往地按着人人一致而又各具精彩的渠道通向自信满满的未来，一切都还在，高中母校里的那份执着和疯狂压在心灵深处，谁也偷不走。  </p>
 <p>沙扬娜拉。          </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
-<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
-<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
-<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
-<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
 
           
         
@@ -692,6 +683,159 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pet pet;</span><br><span class="line">pet.name = &quot;Tom&quot;;</span><br><span class="line">pet.age = 3;</span><br></pre></td></tr></table></figure>
 <h1 id="引用类型与值类型"><a href="#引用类型与值类型" class="headerlink" title="引用类型与值类型"></a>引用类型与值类型</h1><p>类是引用类型，结构是值类型</p>
 <h1 id="ref参数与out参数"><a href="#ref参数与out参数" class="headerlink" title="ref参数与out参数"></a>ref参数与out参数</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
+<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
+<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
+<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
+
           
         
       
@@ -1625,160 +1769,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Java 包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/Java 包/" itemprop="url">Java笔记——包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T17:56:00+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><p>Java类的名称是该类的唯一标识，编译后产生的字节代码文件名和类名相同。因此在同一个文件夹中不能存在两个同名的类。</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将字节代码文件存放在不同的子文件夹中，并把相对路径和类名混合在一起，做为类的完整名。</p>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><h4 id="1-定义："><a href="#1-定义：" class="headerlink" title="1.定义："></a>1.定义：</h4><p>放置多个字节代码文件的文件夹路径名。它是用于管理类名的特殊手段。</p>
-<h4 id="2-package语句："><a href="#2-package语句：" class="headerlink" title="2.package语句："></a>2.package语句：</h4><p>用package语句定义类所在的包。格式为：  </p>
-<h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  pkg1[.pkg2[.pkg3…]];</span><br></pre></td></tr></table></figure>
-<p>注意：<br>（1）如果用package语句，它必须是源程序中的第一条语句；<br>（2）含有package语句的源程序中所有的类都属于该包；<br>（3）不能指定到文件上，如”package p1.SameName”只能说明后续的类是p1.SameName包中的类；<br>（4）编译包含该语句的Java程序后，需要将编译生成的所有的class文件拷贝到当前目录下的pkg1\pkg2\pkg3…目录内，否则不能正确访问这些类；<br>（5）包名与源程序的编译没有任何关系，只在运行类和实例化类时起作用；<br>（6）包在命名时应该全小写；<br>（7）包的名字应该与类的名字相异。</p>
-<h4 id="3-import语句："><a href="#3-import语句：" class="headerlink" title="3.import语句："></a>3.import语句：</h4><p>import语句用于引入需要的包。一般格式为：</p>
-<h4 id="代码高亮-1"><a href="#代码高亮-1" class="headerlink" title="代码高亮"></a>代码高亮</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>   pkg1[.pkg2[.pkg3…]].classname|*;</span><br></pre></td></tr></table></figure>
-<p> 其中<br>（1）*表示同一个包中的所有类；<br>（2）可以一次只引入包中的一个类。  </p>
-<p>注意：<br>（1）如果不用import语句，需要在使用类的地方书写完整的包名，所以一般不采用这种方法。</p>
-<p>（2）如果要直接运行属于某个包中的类，必须写出完整的包名，如：<br>Java p1.p2.SameName</p>
-<p>（3）import只能导入包中的类，不能导入包中的包。</p>
-<h4 id="把一个类放到包中再执行的过程"><a href="#把一个类放到包中再执行的过程" class="headerlink" title="把一个类放到包中再执行的过程"></a>把一个类放到包中再执行的过程</h4><p>1.源代码第一行加入package语句。<br>2.编译的时候使用 -d 选项（如： javac -d . A.java）<br>3.运行包中的类时应使用完整类名。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1829,7 +1819,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1840,7 +1830,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1851,7 +1841,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

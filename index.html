@@ -262,6 +262,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/13/JDBC/" itemprop="url">JDBC的使用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T07:06:00+08:00">
+                2019-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程技术/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。<br>执行流程：<br>连接数据源，如：数据库。<br>为数据库传递查询和更新指令。<br>处理数据库响应并返回的结果。</p>
+<h1 id="JDBC编程步骤"><a href="#JDBC编程步骤" class="headerlink" title="JDBC编程步骤"></a>JDBC编程步骤</h1><p>加载驱动程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(&quot;com.mysql.jdbc.Driver&quot;)</span><br></pre></td></tr></table></figure>
+<p>获得数据链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(parameter0,parameter1,...)</span><br></pre></td></tr></table></figure>
+<p>创建Statement/PreparedStatement对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conn.createStatement();</span><br><span class="line">conn.prepareStatement(sql);</span><br></pre></td></tr></table></figure>
+<p>结果集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = st.excuteQuery(sql);</span><br></pre></td></tr></table></figure>
+<h1 id="完整实例"><a href="#完整实例" class="headerlink" title="完整实例"></a>完整实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.sql.Connection;</span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.Statement;</span><br><span class="line"></span><br><span class="line">public class DbUtil &#123;</span><br><span class="line"></span><br><span class="line">    public static final String URL = &quot;jdbc:mysql://localhost:3306/dbasename&quot;;</span><br><span class="line">    public static final String USER = &quot;user0&quot;;</span><br><span class="line">    public static final String PASSWORD = &quot;password0&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        //1.加载驱动程序</span><br><span class="line">        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">        //2. 获得数据库连接</span><br><span class="line">        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);</span><br><span class="line">        //3.操作数据库，实现增删改查</span><br><span class="line">        Statement stmt = conn.createStatement();</span><br><span class="line">        ResultSet rs = stmt.executeQuery(&quot;SELECT user_name, age FROM imooc_goddess&quot;);</span><br><span class="line">        //如果有数据，rs.next()返回true</span><br><span class="line">        while(rs.next())&#123;</span><br><span class="line">            System.out.println(rs.getString(&quot;user_name&quot;)+&quot; 年龄：&quot;+rs.getInt(&quot;age&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待补充</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/mysql,zsgc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1622,150 +1774,6 @@ public static void Main(string[] args)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/简单记事本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/29/简单记事本/" itemprop="url">Java实验——简单记事本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T18:53:00+08:00">
-                2018-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>EasyFile类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.BorderLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.FilterInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.JFileChooser;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenu;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuBar;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuItem;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JOptionPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JScrollPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JTextArea;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*</span><br><span class="line">;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EasyFile</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    JFileChooser jd;</span><br><span class="line">	StringBuilder Contenct;</span><br><span class="line">	JTextArea jt;</span><br><span class="line">	JFrame jf;</span><br><span class="line">	StringBuilder Path;</span><br><span class="line"> EasyFile()</span><br><span class="line">&#123;</span><br><span class="line">	 Path=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 Contenct=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 </span><br><span class="line">jf=<span class="keyword">new</span> JFrame();</span><br><span class="line">jf.setTitle(<span class="string">"简易文本编辑器"</span>);</span><br><span class="line">jf.setSize(<span class="number">800</span>, <span class="number">500</span>);</span><br><span class="line">jf.setLayout(<span class="keyword">new</span> BorderLayout());</span><br><span class="line"></span><br><span class="line">JMenu jm=<span class="keyword">new</span> JMenu(<span class="string">"文件"</span>) ;     </span><br><span class="line">JMenuItem t1=<span class="keyword">new</span> JMenuItem(<span class="string">"打开"</span>) ;  </span><br><span class="line">JMenuItem t2=<span class="keyword">new</span> JMenuItem(<span class="string">"保存"</span>) ;</span><br><span class="line">JMenuItem t3=<span class="keyword">new</span> JMenuItem(<span class="string">"另存为"</span>) ;</span><br><span class="line">JMenuItem t4=<span class="keyword">new</span> JMenuItem(<span class="string">"退出"</span>) ;</span><br><span class="line"></span><br><span class="line"> jt=<span class="keyword">new</span> JTextArea();</span><br><span class="line">jf.add(jt,BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">JScrollPane jp=<span class="keyword">new</span> JScrollPane();</span><br><span class="line">jp.setViewportView(jt);</span><br><span class="line"></span><br><span class="line">jf.add(jp);</span><br><span class="line">jm.add(t1) ;  </span><br><span class="line">jm.add(t2) ;    </span><br><span class="line">jm.add(t3) ; </span><br><span class="line">jm.addSeparator();</span><br><span class="line">jm.add(t4) ;  </span><br><span class="line">JMenuBar  br=<span class="keyword">new</span>  JMenuBar() ;  </span><br><span class="line">br.add(jm) ;      </span><br><span class="line">jf.setJMenuBar(br) ;  </span><br><span class="line">jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">jd=<span class="keyword">new</span> JFileChooser();</span><br><span class="line">jd.setDialogTitle(<span class="string">"文件选择"</span>);</span><br><span class="line"></span><br><span class="line">t1.addActionListener(<span class="keyword">new</span> ActionListener()</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span></span></span><br><span class="line"><span class="function">	</span>&#123;		      </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (JFileChooser.APPROVE_OPTION == jd.showOpenDialog(jf)) </span><br><span class="line">&#123;</span><br><span class="line">     	Path.setLength(<span class="number">0</span>);</span><br><span class="line">		File f=jd.getSelectedFile();</span><br><span class="line">		jf.setTitle(f.getName());</span><br><span class="line">		Path.append(f.getAbsolutePath());</span><br><span class="line">		System.out.println(Path.toString());</span><br><span class="line">		<span class="keyword">try</span> </span><br><span class="line">		&#123;			 </span><br><span class="line">		   InputStreamReader isr=<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">			 BufferedReader br=<span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">			 String s1=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">while</span>((s1=br.readLine())!=<span class="keyword">null</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				 Contenct.append(s1);</span><br><span class="line">				Contenct.append(<span class="string">"\r\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		    jt.setText(Contenct.toString());</span><br><span class="line">		    Contenct.setLength(<span class="number">0</span>);</span><br><span class="line">			br.close();</span><br><span class="line">		   isr.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e1)</span><br><span class="line">		&#123;	 </span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">			</span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;  </span><br><span class="line">		 </span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t2.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	 </span><br><span class="line">		 <span class="keyword">if</span>(Path.length()&gt;<span class="number">0</span>)</span><br><span class="line">		 &#123;</span><br><span class="line">			 File f=<span class="keyword">new</span> File(Path.toString());</span><br><span class="line">			 jf.setTitle(f.getName());</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				OutputStreamWriter osw=<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 &#123;</span><br><span class="line">			 		 </span><br><span class="line">			 <span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">			 &#123;</span><br><span class="line">				 Path.setLength(<span class="number">0</span>);</span><br><span class="line">				 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">				 </span><br><span class="line">				 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">				 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">				 jf.setTitle(f.getName());</span><br><span class="line">				 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">				 &#123;</span><br><span class="line">					 <span class="keyword">try</span> &#123;</span><br><span class="line">						f.createNewFile();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">				 &#125;</span><br><span class="line"> 					<span class="keyword">try</span> &#123;</span><br><span class="line"> 						OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">						BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">						bw.write(jt.getText());</span><br><span class="line">						bw.close();</span><br><span class="line">						osw.close();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">					 </span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);  </span><br><span class="line">t3.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123; </span><br><span class="line">	<span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">	&#123;</span><br><span class="line">		 Path.setLength(<span class="number">0</span>);</span><br><span class="line">		 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">		 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">		 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">		 jf.setTitle(f.getName());</span><br><span class="line">		 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">		 &#123;</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				f.createNewFile();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		 &#125;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">				</span><br><span class="line">					OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);			 </span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t4.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">		System.exit(<span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>FileTest类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		 EasyFile f=<span class="keyword">new</span> EasyFile();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h4><p>未实现退出时提醒用户保存的功能</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1816,7 +1824,7 @@ public static void Main(string[] args)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1827,7 +1835,7 @@ public static void Main(string[] args)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1838,7 +1846,7 @@ public static void Main(string[] args)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
