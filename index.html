@@ -1055,6 +1055,156 @@ public static void Main(string[] args)
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1036/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/pat乙级1036/" itemprop="url">PAT乙级练习——1036 成绩排名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述<br>读入n名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。</p>
+<p>输入描述:<br>每个测试输入包含1个测试用例，格式为</p>
+<p> 第1行：正整数n<br> 第2行：第1个学生的姓名 学号 成绩<br> 第3行：第2个学生的姓名 学号 成绩<br> … … …<br> 第n+1行：第n个学生的姓名 学号 成绩</p>
+<p>其中姓名和学号均为不超过10个字符的字符串，成绩为0到100之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。</p>
+<p>输出描述:<br>对每个测试用例输出2行，第1行是成绩最高学生的姓名和学号，第2行是成绩最低学生的姓名和学号，字符串间有1空格。</p>
+<p>输入例子:<br>3<br>Joe Math990112 89<br>Mike CS991301 100<br>Mary EE990830 95</p>
+<p>输出例子:<br>Mike CS991301<br>Joe Math990112</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1036</span><br><span class="line">&#123;   class Student</span><br><span class="line">    &#123;</span><br><span class="line">        public String name&#123;get;set;&#125;</span><br><span class="line">        public String student_number &#123; get; set; &#125;</span><br><span class="line">        public int score &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">        public Student(String name,String student_number,int score)</span><br><span class="line">        &#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.student_number = student_number;</span><br><span class="line">            this.score = score;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Program a = new Program();</span><br><span class="line">            var s = Console.ReadLine();</span><br><span class="line">            int n = int.Parse(s);</span><br><span class="line">            String n1, n2;</span><br><span class="line">            int n3;</span><br><span class="line">            </span><br><span class="line">            List&lt;Student&gt; studentlist = new List&lt;Student&gt;(); </span><br><span class="line">            for (int i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                string str = Console.ReadLine();</span><br><span class="line">                String[] slist = str.Split(&apos; &apos;);</span><br><span class="line">                n1 = slist[0];</span><br><span class="line">                n2 = slist[1];</span><br><span class="line">                n3 = int.Parse(slist[2]);</span><br><span class="line">                Student stu = new Student(n1,n2,n3);</span><br><span class="line">                studentlist.Add(stu);</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">             studentlist.Sort((left, right) =&gt;</span><br><span class="line">              &#123;</span><br><span class="line">                  if (left.score &gt; right.score)</span><br><span class="line">                      return 1;</span><br><span class="line">                  else if (left.score == right.score)</span><br><span class="line">                      return 0;</span><br><span class="line">                  else</span><br><span class="line">                      return -1;</span><br><span class="line">              &#125;);</span><br><span class="line">            </span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;,studentlist[n - 1].name,studentlist[n - 1].student_number);</span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;, studentlist[0].name, studentlist[0].student_number);</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：List的使用会在另外的文章中总结。  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/C#中List的使用方法总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1164,156 +1314,6 @@ public static void Main(string[] args)
 <h3 id="List的进阶用法"><a href="#List的进阶用法" class="headerlink" title="List的进阶用法"></a>List的进阶用法</h3><h4 id="List-FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素"><a href="#List-FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素" class="headerlink" title="List.FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素"></a>List.FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素</h4><h4 id="List-Find方法：-搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素"><a href="#List-Find方法：-搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素" class="headerlink" title="List.Find方法：　搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素"></a>List.Find方法：　搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素</h4><h4 id="List-FindLast方法：-public-T-FindLast-Predicate-match-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。用法与List-Find相同。"><a href="#List-FindLast方法：-public-T-FindLast-Predicate-match-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。用法与List-Find相同。" class="headerlink" title="List.FindLast方法：  public T FindLast(Predicate match);确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。用法与List.Find相同。"></a>List.FindLast方法：  public T FindLast(Predicate<t> match);确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。用法与List.Find相同。</t></h4><h4 id="List-TrueForAll方法：-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。"><a href="#List-TrueForAll方法：-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。" class="headerlink" title="List.TrueForAll方法：  确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。"></a>List.TrueForAll方法：  确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。</h4><h4 id="List-Take-n-：-获得前n行-返回值为IEnumetable，T的类型与List的类型一样"><a href="#List-Take-n-：-获得前n行-返回值为IEnumetable，T的类型与List的类型一样" class="headerlink" title="List.Take(n)：  获得前n行 返回值为IEnumetable，T的类型与List的类型一样"></a>List.Take(n)：  获得前n行 返回值为IEnumetable<t>，T的类型与List<t>的类型一样</t></t></h4><h4 id="List-Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List-FindAll方法类似。"><a href="#List-Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List-FindAll方法类似。" class="headerlink" title="List.Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List.FindAll方法类似。"></a>List.Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List.FindAll方法类似。</h4><h4 id="List-RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。"><a href="#List-RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。" class="headerlink" title="List.RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。"></a>List.RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。</h4><h3 id="List的Sort-方法补充"><a href="#List的Sort-方法补充" class="headerlink" title="List的Sort()方法补充"></a>List的Sort()方法补充</h3><p>排序对象的元素的类型必须实现ICompareable接口。 实现ICompareable接口的类型可以重写CompareTo的方法。<br>实现ICompare接口的类型可以重写Compare的方法。Sort方法的这种重载常常新定义一个类型作为原来类型的排序器使用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass : IComparable, IComparer&lt;MyClass&gt;</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public int CompareTo(Object o)</span><br><span class="line">    &#123;</span><br><span class="line">        if (this.age &gt; ((MyClass)o).age)</span><br><span class="line">            return 1;</span><br><span class="line">        else if (this.age == ((MyClass)o).age)</span><br><span class="line">            return 0;</span><br><span class="line">        else</span><br><span class="line">            return -1;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public int Compare(MyClass x, MyClass y)</span><br><span class="line">    &#123;</span><br><span class="line">        if (x.age &lt; y.age)</span><br><span class="line">            return -1;</span><br><span class="line">        else if (x.age == y.age)</span><br><span class="line">            return 0;</span><br><span class="line">        else</span><br><span class="line">            return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1036/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/pat乙级1036/" itemprop="url">PAT乙级练习——1036 成绩排名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目描述<br>读入n名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。</p>
-<p>输入描述:<br>每个测试输入包含1个测试用例，格式为</p>
-<p> 第1行：正整数n<br> 第2行：第1个学生的姓名 学号 成绩<br> 第3行：第2个学生的姓名 学号 成绩<br> … … …<br> 第n+1行：第n个学生的姓名 学号 成绩</p>
-<p>其中姓名和学号均为不超过10个字符的字符串，成绩为0到100之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。</p>
-<p>输出描述:<br>对每个测试用例输出2行，第1行是成绩最高学生的姓名和学号，第2行是成绩最低学生的姓名和学号，字符串间有1空格。</p>
-<p>输入例子:<br>3<br>Joe Math990112 89<br>Mike CS991301 100<br>Mary EE990830 95</p>
-<p>输出例子:<br>Mike CS991301<br>Joe Math990112</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1036</span><br><span class="line">&#123;   class Student</span><br><span class="line">    &#123;</span><br><span class="line">        public String name&#123;get;set;&#125;</span><br><span class="line">        public String student_number &#123; get; set; &#125;</span><br><span class="line">        public int score &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">        public Student(String name,String student_number,int score)</span><br><span class="line">        &#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.student_number = student_number;</span><br><span class="line">            this.score = score;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Program a = new Program();</span><br><span class="line">            var s = Console.ReadLine();</span><br><span class="line">            int n = int.Parse(s);</span><br><span class="line">            String n1, n2;</span><br><span class="line">            int n3;</span><br><span class="line">            </span><br><span class="line">            List&lt;Student&gt; studentlist = new List&lt;Student&gt;(); </span><br><span class="line">            for (int i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                string str = Console.ReadLine();</span><br><span class="line">                String[] slist = str.Split(&apos; &apos;);</span><br><span class="line">                n1 = slist[0];</span><br><span class="line">                n2 = slist[1];</span><br><span class="line">                n3 = int.Parse(slist[2]);</span><br><span class="line">                Student stu = new Student(n1,n2,n3);</span><br><span class="line">                studentlist.Add(stu);</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">             studentlist.Sort((left, right) =&gt;</span><br><span class="line">              &#123;</span><br><span class="line">                  if (left.score &gt; right.score)</span><br><span class="line">                      return 1;</span><br><span class="line">                  else if (left.score == right.score)</span><br><span class="line">                      return 0;</span><br><span class="line">                  else</span><br><span class="line">                      return -1;</span><br><span class="line">              &#125;);</span><br><span class="line">            </span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;,studentlist[n - 1].name,studentlist[n - 1].student_number);</span><br><span class="line">            Console.WriteLine(&quot;&#123;0&#125; &#123;1&#125;&quot;, studentlist[0].name, studentlist[0].student_number);</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：List的使用会在另外的文章中总结。  </p>
 
           
         
