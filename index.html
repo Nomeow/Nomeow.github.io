@@ -907,6 +907,154 @@ public static void Main(string[] args)
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1007/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/pat乙级1007/" itemprop="url">PAT乙级练习——1007 母牛的故事</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述<br>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
+<p>输入描述:<br>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。</p>
+<p>输出描述:<br>对于每个测试实例，输出在第n年的时候母牛的数量。<br>每个输出占一行。</p>
+<p>输入例子:<br>2<br>4<br>5</p>
+<p>输出例子:<br>2<br>4<br>6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1007</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            while (true)</span><br><span class="line">            &#123;</span><br><span class="line">                var s = Console.ReadLine();</span><br><span class="line">                if (String.IsNullOrEmpty(s))</span><br><span class="line">                    break;</span><br><span class="line">                int n = int.Parse(s);</span><br><span class="line">                long[] num = new long[56];</span><br><span class="line">                num[1] = 1;</span><br><span class="line">                num[2] = 2;</span><br><span class="line">                num[3] = 3;</span><br><span class="line">                for (int i = 4  ; i &lt; 56; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    num[i] = num[i - 1] + num[i-3];</span><br><span class="line">                &#125;</span><br><span class="line">                Console.WriteLine(num[n]);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：<br>每一年牛的数量等于去年的牛的数量，加上今年能生小牛的牛的数量  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/C#中List的使用方法总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1016,154 +1164,6 @@ public static void Main(string[] args)
 <h3 id="List的进阶用法"><a href="#List的进阶用法" class="headerlink" title="List的进阶用法"></a>List的进阶用法</h3><h4 id="List-FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素"><a href="#List-FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素" class="headerlink" title="List.FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素"></a>List.FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素</h4><h4 id="List-Find方法：-搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素"><a href="#List-Find方法：-搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素" class="headerlink" title="List.Find方法：　搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素"></a>List.Find方法：　搜索与指定谓词所定义的条件相匹配的元素，并返回整个List中的第一个匹配元素</h4><h4 id="List-FindLast方法：-public-T-FindLast-Predicate-match-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。用法与List-Find相同。"><a href="#List-FindLast方法：-public-T-FindLast-Predicate-match-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。用法与List-Find相同。" class="headerlink" title="List.FindLast方法：  public T FindLast(Predicate match);确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。用法与List.Find相同。"></a>List.FindLast方法：  public T FindLast(Predicate<t> match);确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。用法与List.Find相同。</t></h4><h4 id="List-TrueForAll方法：-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。"><a href="#List-TrueForAll方法：-确定是否-List-中的每个元素都与指定的谓词所定义的条件相匹配。" class="headerlink" title="List.TrueForAll方法：  确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。"></a>List.TrueForAll方法：  确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。</h4><h4 id="List-Take-n-：-获得前n行-返回值为IEnumetable，T的类型与List的类型一样"><a href="#List-Take-n-：-获得前n行-返回值为IEnumetable，T的类型与List的类型一样" class="headerlink" title="List.Take(n)：  获得前n行 返回值为IEnumetable，T的类型与List的类型一样"></a>List.Take(n)：  获得前n行 返回值为IEnumetable<t>，T的类型与List<t>的类型一样</t></t></h4><h4 id="List-Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List-FindAll方法类似。"><a href="#List-Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List-FindAll方法类似。" class="headerlink" title="List.Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List.FindAll方法类似。"></a>List.Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List.FindAll方法类似。</h4><h4 id="List-RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。"><a href="#List-RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。" class="headerlink" title="List.RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。"></a>List.RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。</h4><h3 id="List的Sort-方法补充"><a href="#List的Sort-方法补充" class="headerlink" title="List的Sort()方法补充"></a>List的Sort()方法补充</h3><p>排序对象的元素的类型必须实现ICompareable接口。 实现ICompareable接口的类型可以重写CompareTo的方法。<br>实现ICompare接口的类型可以重写Compare的方法。Sort方法的这种重载常常新定义一个类型作为原来类型的排序器使用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass : IComparable, IComparer&lt;MyClass&gt;</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public int CompareTo(Object o)</span><br><span class="line">    &#123;</span><br><span class="line">        if (this.age &gt; ((MyClass)o).age)</span><br><span class="line">            return 1;</span><br><span class="line">        else if (this.age == ((MyClass)o).age)</span><br><span class="line">            return 0;</span><br><span class="line">        else</span><br><span class="line">            return -1;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public int Compare(MyClass x, MyClass y)</span><br><span class="line">    &#123;</span><br><span class="line">        if (x.age &lt; y.age)</span><br><span class="line">            return -1;</span><br><span class="line">        else if (x.age == y.age)</span><br><span class="line">            return 0;</span><br><span class="line">        else</span><br><span class="line">            return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/pat乙级1007/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/pat乙级1007/" itemprop="url">PAT乙级练习——1007 母牛的故事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T21:06:00+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目描述<br>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
-<p>输入描述:<br>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。</p>
-<p>输出描述:<br>对于每个测试实例，输出在第n年的时候母牛的数量。<br>每个输出占一行。</p>
-<p>输入例子:<br>2<br>4<br>5</p>
-<p>输出例子:<br>2<br>4<br>6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1007</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            while (true)</span><br><span class="line">            &#123;</span><br><span class="line">                var s = Console.ReadLine();</span><br><span class="line">                if (String.IsNullOrEmpty(s))</span><br><span class="line">                    break;</span><br><span class="line">                int n = int.Parse(s);</span><br><span class="line">                long[] num = new long[56];</span><br><span class="line">                num[1] = 1;</span><br><span class="line">                num[2] = 2;</span><br><span class="line">                num[3] = 3;</span><br><span class="line">                for (int i = 4  ; i &lt; 56; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    num[i] = num[i - 1] + num[i-3];</span><br><span class="line">                &#125;</span><br><span class="line">                Console.WriteLine(num[n]);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：<br>每一年牛的数量等于去年的牛的数量，加上今年能生小牛的牛的数量  </p>
 
           
         
@@ -1513,154 +1513,6 @@ public static void Main(string[] args)
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/pat乙级1041/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/30/pat乙级1041/" itemprop="url">PAT乙级练习——1041 说反话</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T11:06:00+08:00">
-                2018-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目描述<br>给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。</p>
-<p>输入描述:<br>测试输入包含一个测试用例，在一行内给出总长度不超过80的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用1个空格分开，输入保证句子末尾没有多余的空格。</p>
-<p>输出描述:<br>每个测试用例的输出占一行，输出倒序后的句子。</p>
-<p>输入例子:<br>Hello World Here I Come</p>
-<p>输出例子:<br>Come I Here World Hello</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Collections;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1041</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            String s = Console.ReadLine();</span><br><span class="line">            string[] str = s.Split(&apos; &apos;);</span><br><span class="line">            String strout = &quot;&quot;;</span><br><span class="line">            foreach (string i in str.Reverse())</span><br><span class="line">            &#123;</span><br><span class="line">                strout = strout + i + &quot; &quot;; </span><br><span class="line">            &#125;</span><br><span class="line">            Console.Write(strout.Trim());</span><br><span class="line">            </span><br><span class="line">                </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>用到的函数：<br>（1）Split()分割字符串。<br>（2）Reverse()反转数组中的元素的序列。<br>（3）Trim()去掉字符串前后空格。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/pat乙级1038/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1795,6 +1647,154 @@ public static void Main(string[] args)
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/pat乙级1033/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/29/pat乙级1033/" itemprop="url">PAT乙级练习——1033 害死人不偿命的(3n+1)猜想</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T18:59:00+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>卡拉兹(Callatz)猜想：</p>
+<p>对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步</p>
+<p>得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，</p>
+<p>结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
+<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过1000的正整数n，简单地数一下，需要多少步（砍几下）才能得到n=1？<br>输入描述:<br>每个测试输入包含1个测试用例，即给出自然数n的值。</p>
+<p>输出描述:<br>输出从n计算到1需要的步数。<br>示例1<br>输入<br>3<br>输出<br>5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1033_1_</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            int i = 0;</span><br><span class="line">            int num = int.Parse(Console.ReadLine());</span><br><span class="line">            while (num != 1)</span><br><span class="line">            &#123;</span><br><span class="line">                if (num % 2 == 0)</span><br><span class="line">                &#123; num = num / 2; &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123; num = (3 * num + 1) / 2; &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            Console.Write(i);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1845,7 +1845,7 @@ public static void Main(string[] args)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
