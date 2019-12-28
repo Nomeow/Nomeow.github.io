@@ -262,6 +262,307 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/pat乙级1033/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/29/pat乙级1033/" itemprop="url">PAT乙级练习——1033 害死人不偿命的(3n+1)猜想</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T18:59:00+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>卡拉兹(Callatz)猜想：</p>
+<p>对任何一个自然数n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把(3n+1)砍掉一半。这样一直反复砍下去，最后一定在某一步</p>
+<p>得到n=1。卡拉兹在1950年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，</p>
+<p>结果闹得学生们无心学业，一心只证(3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
+<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过1000的正整数n，简单地数一下，需要多少步（砍几下）才能得到n=1？<br>输入描述:<br>每个测试输入包含1个测试用例，即给出自然数n的值。</p>
+<p>输出描述:<br>输出从n计算到1需要的步数。<br>示例1<br>输入<br>3<br>输出<br>5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line">namespace pat_y_1033_1_</span><br><span class="line">&#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            int i = 0;</span><br><span class="line">            int num = int.Parse(Console.ReadLine());</span><br><span class="line">            while (num != 1)</span><br><span class="line">            &#123;</span><br><span class="line">                if (num % 2 == 0)</span><br><span class="line">                &#123; num = num / 2; &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123; num = (3 * num + 1) / 2; &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            Console.Write(i);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/数组学习_一维数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/29/数组学习_一维数组/" itemprop="url">CSharp笔记————一维数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T18:53:00+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSharp/" itemprop="url" rel="index">
+                    <span itemprop="name">CSharp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>数组是一个存储相同类型元素的固定大小的顺序集合。数组是用来存储数据的集合，通常认为数组是一个同一类型变量的集合。</p>
+<p>声明数组变量并不是声明 number0、number1、…、number99 一个个单独的变量，而是声明一个就像 numbers 这样的变量，然后使用 numbers[0]、numbers[1]、…、numbers[99] 来表示一个个单独的变量。数组中某个指定的元素是通过索引来访问的。</p>
+<p>所有的数组都是由连续的内存位置组成的。最低的地址对应第一个元素，最高的地址对应最后一个元素。</p>
+<h3 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int num = 5;</span><br><span class="line">int[] array1 = new int[num];//数组是引用类型</span><br><span class="line">//类型 数组名 new 类型 数组长度</span><br><span class="line"></span><br><span class="line">int[] array2;//可以在声明时不分配空间</span><br><span class="line">array2 = new int[5];</span><br><span class="line">array2 = array1;</span><br><span class="line"></span><br><span class="line">int[] array1 = new int[num]&#123;1,2,3,4,5&#125;;只能在声明的时候这样写，大括号中的元素个数不能多不能少</span><br></pre></td></tr></table></figure>
+<h3 id="数组元素的赋值"><a href="#数组元素的赋值" class="headerlink" title="数组元素的赋值"></a>数组元素的赋值</h3><p>可以通过上述方法在声明时赋值<br>也可以单独给某数组元素赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double[] balance = new double[10];</span><br><span class="line">balance[0] = 4500.0;</span><br></pre></td></tr></table></figure>
+<p>也可以将数组指向某个已经存在初值的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int [] marks = new int[]  &#123; 99,  98, 92, 97, 95&#125;;</span><br><span class="line">int[] score = marks;</span><br></pre></td></tr></table></figure>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><p>找出数组中最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int[] maxArray = new int[10];</span><br><span class="line">for (int i = 0;i &lt; 6;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        maxArray[i] = Convert.ToInt32( Console.ReadLine());</span><br><span class="line">    &#125;</span><br><span class="line">ArrayList list = new ArrayList(maxArray);</span><br><span class="line">list.Sort();</span><br><span class="line">Console.WriteLine(list[list.Count-1]);</span><br></pre></td></tr></table></figure>
+<p>给数组的100元素以随机数赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int[] randomArray = new int[100];</span><br><span class="line">Random r = new Random();</span><br><span class="line">for (int i = 0; i &lt; randomArray.Length; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    randomArray[i] = r.Next(1,100);</span><br><span class="line">  &#125;</span><br><span class="line"> ArrayList list1 = new ArrayList(randomArray);</span><br><span class="line">list1.Sort();</span><br><span class="line">Console.Write(list1[list1.Count-1]);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/简单记事本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -564,159 +865,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
-<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
-<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
-<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
-<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -836,6 +984,159 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pet pet;</span><br><span class="line">pet.name = &quot;Tom&quot;;</span><br><span class="line">pet.age = 3;</span><br></pre></td></tr></table></figure>
 <h1 id="引用类型与值类型"><a href="#引用类型与值类型" class="headerlink" title="引用类型与值类型"></a>引用类型与值类型</h1><p>类是引用类型，结构是值类型</p>
 <h1 id="ref参数与out参数"><a href="#ref参数与out参数" class="headerlink" title="ref参数与out参数"></a>ref参数与out参数</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
+<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
+<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
+<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
+
           
         
       
@@ -1456,319 +1757,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/Java 继承(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/24/Java 继承(1)/" itemprop="url">Java笔记——继承,多态</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T09:53:00+08:00">
-                2018-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Subclass extends Superclass&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）其中Subclass为子类，extends为继承关键字，Superclass为父类。<br>（2）在继承中，子类可以看作父类的一个子集。<br>（3）Java中只能单一继承，不支持多重继承，但可以多层继承。</p>
-<h3 id="父类成员的隐藏"><a href="#父类成员的隐藏" class="headerlink" title="父类成员的隐藏"></a>父类成员的隐藏</h3><p>子类和父类中出现同名的变量和方法时，调用时默认使用子类中的成员（就近）。若想调用父类中的成员，则需要引入super关键字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">super.([参数列表])</span><br><span class="line">super.父类成员变量</span><br><span class="line">super.父类方法</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><p>子类中出现与父类同名的方法</p>
-<p>原因：方法操作相同，但父类中的该方法已经满足不了子类中对该操作的要求。</p>
-<p>原则：<br>（1）方法名，返回类型，参数列表一摸一样。<br>（2）重写后的方法不能有更严格的保护权限。<br>（3）重写后的方法不能产生更多异常。  </p>
-<p>问题：<br>子类构造方法会有先调用父类中无参的构造方法。<br>解决办法:<br>（1）在父类中重载一个无参的构造方法。<br>（2）在子类构造方法的第一句添加super.([参数列表])手动调用父类中无参的构造方法。  </p>
-<p>注意：super处取什么实参取决于父类构造方法中的型参。</p>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态性：由于方法重载和覆盖引起的方法同名不同功能现象。</p>
-<p>分类：静态多态性和动态多态性</p>
-<p>静态(编译时)多态性：方法重载，如println方法</p>
-<p>动态(运行时)多态性：多个子类继承同一个父类，并各自重写父类的方法，那么运行时可以完成不同的功能。</p>
-<h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">形状类Shape有一个计算周长的方法perimeter()，由于有不同形状的图形，</span></span><br><span class="line"><span class="comment">perimeter不能具体实现。而三角形ShapeTringle、矩形ShapeRectangle和</span></span><br><span class="line"><span class="comment">圆形ShapeCircle派生自Shape，那么它们分别定义各自的perimeter()方法</span></span><br><span class="line"><span class="comment">实现计算周长。具体应用时，根据创建的类对象调用对应的perimeter()方法。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTringle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> side1,side2,side3;</span><br><span class="line">   ShapeTringle()&#123;</span><br><span class="line">      <span class="keyword">this</span>.side1=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.side2=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.side3=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeTringle(<span class="keyword">int</span> side1,<span class="keyword">int</span> side2,<span class="keyword">int</span> side3)&#123;</span><br><span class="line">      <span class="keyword">this</span>.side1=side1;</span><br><span class="line">      <span class="keyword">this</span>.side2=side2;</span><br><span class="line">      <span class="keyword">this</span>.side3=side3;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(side1+side2+side3);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeRectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> width,height;</span><br><span class="line">   ShapeRectangle()&#123;</span><br><span class="line">      <span class="keyword">this</span>.width=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">this</span>.height=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeRectangle(<span class="keyword">int</span> width,<span class="keyword">int</span> height)&#123;</span><br><span class="line">      <span class="keyword">this</span>.width=width;</span><br><span class="line">      <span class="keyword">this</span>.height=height;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(<span class="number">2</span>*(width+height));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeCircle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> radius;</span><br><span class="line">   ShapeCircle()&#123;</span><br><span class="line">      radius=<span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ShapeCircle(<span class="keyword">int</span> radius)&#123;</span><br><span class="line">      <span class="keyword">this</span>.radius=radius;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span>(radius*<span class="number">3.14</span>*<span class="number">2</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShapeTest</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      Shape aTringle=<span class="keyword">new</span> ShapeTringle(<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">      Shape aCircle=<span class="keyword">new</span> ShapeCircle(<span class="number">10</span>);</span><br><span class="line">      System.out.println(aTringle.perimeter());</span><br><span class="line">      System.out.println(aCircle.perimeter());</span><br><span class="line">      testInstance(aTringle);</span><br><span class="line">      testInstance(aCircle);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testInstance</span><span class="params">(Shape aObject)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (aObject <span class="keyword">instanceof</span> ShapeCircle)</span><br><span class="line">         System.out.println(<span class="string">"A Circle"</span>);</span><br><span class="line">      <span class="keyword">if</span> (aObject <span class="keyword">instanceof</span> ShapeTringle)</span><br><span class="line">         System.out.println(<span class="string">"A Tringle"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="上转型对象"><a href="#上转型对象" class="headerlink" title="上转型对象"></a>上转型对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shape aTringle=<span class="keyword">new</span> ShapeTringle(<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<p>只能访问父类和子类共有的成员</p>
-<h2 id="其他关键字"><a href="#其他关键字" class="headerlink" title="其他关键字"></a>其他关键字</h2><h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> 变量：变量</span><br><span class="line"><span class="keyword">final</span> 方法：不可被重写</span><br><span class="line"><span class="keyword">final</span> 类：不能被继承</span><br></pre></td></tr></table></figure>
-<h4 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h4><p>（1）类方法只能访问类成员<br>（2）类成员共享类变量<br>（3）类成员可以由类名调用<br>（4）类方法中不可以使用this关键字，super关键字</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/Html——认识Html(1)(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/Html——认识Html(1)(1)/" itemprop="url">Html笔记——初识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T23:54:00+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>hyperText Markup Language</p>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>My First Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My First Headline<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  今晚月色真美</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>My Second Headline<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  今晚你可真皮</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>HTML文档的后缀名<br>.html或<br>.htm</p>
-<h3 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h3><p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)。<br>HTML 标签是由尖括号包围的关键词，比如 <html><br>HTML 标签通常是成对出现的，比如 <b> 和 </b><br>标签对中的第一个标签是开始标签，第二个标签是结束标签<br>开始和结束标签也被称为开放标签和闭合标签</html></p>
-<h3 id="如"><a href="#如" class="headerlink" title="如"></a>如</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标签</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">标签</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="HTML-元素"><a href="#HTML-元素" class="headerlink" title="HTML 元素"></a>HTML 元素</h3><p>“HTML 标签” 和 “HTML 元素” 通常都是描述同样的意思.<br>但是严格来讲, 一个 HTML 元素包含了开始标签与结束标签，如下实例:</p>
-<h3 id="元素"><a href="#元素" class="headerlink" title="元素:"></a>元素:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="部分标签"><a href="#部分标签" class="headerlink" title="部分标签"></a>部分标签</h3><p><html> 元素是 HTML 页面的根元素  </html></p>
-<p><head> 元素包含了文档的元（meta）数据  </head></p>
-<p><title> 元素描述了文档的标题  </title></p>
-<p><body> 元素包含了可见的页面内容<br>h1 元素定义一个大标题<br>p元素定义一个段落  </body></p>
-<h2 id="标签解释"><a href="#标签解释" class="headerlink" title="标签解释"></a>标签解释</h2><p>标题是通过h1~h6来定义的</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>段落是通过p来定义的<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1819,7 +1807,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
