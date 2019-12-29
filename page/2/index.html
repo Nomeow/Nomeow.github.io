@@ -410,7 +410,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/数组学习_一维数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/数组学习——多维数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xingren Lingjun">
@@ -429,7 +429,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/29/数组学习_一维数组/" itemprop="url">CSharp笔记————一维数组</a></h1>
+                <a class="post-title-link" href="/2018/06/30/数组学习——多维数组/" itemprop="url">CSharp笔记————多维数组</a></h1>
         
 
         <div class="post-meta">
@@ -441,8 +441,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T18:53:00+08:00">
-                2018-06-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-30T18:53:00+08:00">
+                2018-06-30
               </time>
             
 
@@ -503,18 +503,13 @@
       
         
           
-            <h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>数组是一个存储相同类型元素的固定大小的顺序集合。数组是用来存储数据的集合，通常认为数组是一个同一类型变量的集合。</p>
-<p>声明数组变量并不是声明 number0、number1、…、number99 一个个单独的变量，而是声明一个就像 numbers 这样的变量，然后使用 numbers[0]、numbers[1]、…、numbers[99] 来表示一个个单独的变量。数组中某个指定的元素是通过索引来访问的。</p>
-<p>所有的数组都是由连续的内存位置组成的。最低的地址对应第一个元素，最高的地址对应最后一个元素。</p>
-<h3 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int num = 5;</span><br><span class="line">int[] array1 = new int[num];//数组是引用类型</span><br><span class="line">//类型 数组名 new 类型 数组长度</span><br><span class="line"></span><br><span class="line">int[] array2;//可以在声明时不分配空间</span><br><span class="line">array2 = new int[5];</span><br><span class="line">array2 = array1;</span><br><span class="line"></span><br><span class="line">int[] array1 = new int[num]&#123;1,2,3,4,5&#125;;只能在声明的时候这样写，大括号中的元素个数不能多不能少</span><br></pre></td></tr></table></figure>
-<h3 id="数组元素的赋值"><a href="#数组元素的赋值" class="headerlink" title="数组元素的赋值"></a>数组元素的赋值</h3><p>可以通过上述方法在声明时赋值<br>也可以单独给某数组元素赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double[] balance = new double[10];</span><br><span class="line">balance[0] = 4500.0;</span><br></pre></td></tr></table></figure>
-<p>也可以将数组指向某个已经存在初值的数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int [] marks = new int[]  &#123; 99,  98, 92, 97, 95&#125;;</span><br><span class="line">int[] score = marks;</span><br></pre></td></tr></table></figure>
-<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><p>找出数组中最大值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int[] maxArray = new int[10];</span><br><span class="line">for (int i = 0;i &lt; 6;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        maxArray[i] = Convert.ToInt32( Console.ReadLine());</span><br><span class="line">    &#125;</span><br><span class="line">ArrayList list = new ArrayList(maxArray);</span><br><span class="line">list.Sort();</span><br><span class="line">Console.WriteLine(list[list.Count-1]);</span><br></pre></td></tr></table></figure>
-<p>给数组的100元素以随机数赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int[] randomArray = new int[100];</span><br><span class="line">Random r = new Random();</span><br><span class="line">for (int i = 0; i &lt; randomArray.Length; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    randomArray[i] = r.Next(1,100);</span><br><span class="line">  &#125;</span><br><span class="line"> ArrayList list1 = new ArrayList(randomArray);</span><br><span class="line">list1.Sort();</span><br><span class="line">Console.Write(list1[list1.Count-1]);</span><br></pre></td></tr></table></figure>
+            <h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><h2 id="多维数组-1"><a href="#多维数组-1" class="headerlink" title="多维数组"></a>多维数组</h2><p>//多维数组（多秩数组）<br>//C#最多支持32维数组</p>
+<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[,] score = new int[4, 2];</span><br><span class="line">int[,] score1 = new int[3, 5] &#123; &#123; 1,2,3,4,5&#125;,&#123; 1,2,3,4,5&#125;,&#123; 1,2,3,4,5&#125; &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">score[0, 0] = 86;</span><br><span class="line">score[i, j] = 10;</span><br></pre></td></tr></table></figure>
+<h3 id="简单的矩阵加法"><a href="#简单的矩阵加法" class="headerlink" title="简单的矩阵加法"></a>简单的矩阵加法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const int M = 3;</span><br><span class="line">const int N = 4;</span><br><span class="line">int[,] a1 = new int[3, 4] &#123; &#123;1, 2, 3, 4 &#125;,&#123; 5, 6, 7, 8&#125;,&#123; 9, 10, 11, 12&#125; &#125;;</span><br><span class="line">int[,] a2 = new int[3, 4] &#123; &#123; 1, 2, 3, 4 &#125;, &#123; 5, 6, 7, 8 &#125;, &#123; 9, 10, 11, 12 &#125; &#125;;</span><br><span class="line">int[,] a_sum = new int[3, 4];</span><br><span class="line">for (int i = 0; i &lt; M; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; N; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                 a_sum[i, j] = a1[i, j] + a2[i, j];</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; M; i++)</span><br><span class="line">   &#123;</span><br><span class="line">        for (int j = 0; j &lt; N; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                 Console.Write(&quot;&#123;0,4&#125;&quot;,a_sum[i,j]);</span><br><span class="line">             &#125;</span><br><span class="line">         Console.WriteLine();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="交错数组"><a href="#交错数组" class="headerlink" title="交错数组"></a>交错数组</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>交错数组，元素是数组的数组，最少为二维</p>
+<h3 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[][] jagArray = new int[3][];//声明时要给定行数</span><br><span class="line">jagArray[0] = new int[4];//然后分别声明每一行</span><br><span class="line">jagArray[1] = new int[5];</span><br><span class="line">jagArray[2] = new int[1];</span><br></pre></td></tr></table></figure>
+<h3 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">            </span><br><span class="line">const int R = 10;</span><br><span class="line">int[][] ptriangle = new int[R][];</span><br><span class="line">for (int i = 0; i &lt; R; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ptriangle[i] = new int[i+1];</span><br><span class="line">    &#125;</span><br><span class="line">ptriangle[0][0] = 1;</span><br><span class="line">for (int i = 1; i &lt; R; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ptriangle[i][0] = 1;</span><br><span class="line">        ptriangle[i][i] = 1;</span><br><span class="line">        for (int j = 1; j &lt; i; j++)</span><br><span class="line">           &#123;</span><br><span class="line">                    </span><br><span class="line">                ptriangle[i][j] = ptriangle[i - 1][j - 1] + ptriangle[i - 1][j];</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 0; i &lt; R; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j = 0; j &lt;= i; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.Write(&quot;&#123;0,4&#125;&quot;,ptriangle[i][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            Console.WriteLine();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -659,6 +654,159 @@
             <p>EasyFile类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.BorderLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.FilterInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.JFileChooser;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenu;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuBar;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JMenuItem;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JOptionPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JScrollPane;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JTextArea;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*</span><br><span class="line">;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EasyFile</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    JFileChooser jd;</span><br><span class="line">	StringBuilder Contenct;</span><br><span class="line">	JTextArea jt;</span><br><span class="line">	JFrame jf;</span><br><span class="line">	StringBuilder Path;</span><br><span class="line"> EasyFile()</span><br><span class="line">&#123;</span><br><span class="line">	 Path=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 Contenct=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">	 </span><br><span class="line">jf=<span class="keyword">new</span> JFrame();</span><br><span class="line">jf.setTitle(<span class="string">"简易文本编辑器"</span>);</span><br><span class="line">jf.setSize(<span class="number">800</span>, <span class="number">500</span>);</span><br><span class="line">jf.setLayout(<span class="keyword">new</span> BorderLayout());</span><br><span class="line"></span><br><span class="line">JMenu jm=<span class="keyword">new</span> JMenu(<span class="string">"文件"</span>) ;     </span><br><span class="line">JMenuItem t1=<span class="keyword">new</span> JMenuItem(<span class="string">"打开"</span>) ;  </span><br><span class="line">JMenuItem t2=<span class="keyword">new</span> JMenuItem(<span class="string">"保存"</span>) ;</span><br><span class="line">JMenuItem t3=<span class="keyword">new</span> JMenuItem(<span class="string">"另存为"</span>) ;</span><br><span class="line">JMenuItem t4=<span class="keyword">new</span> JMenuItem(<span class="string">"退出"</span>) ;</span><br><span class="line"></span><br><span class="line"> jt=<span class="keyword">new</span> JTextArea();</span><br><span class="line">jf.add(jt,BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">JScrollPane jp=<span class="keyword">new</span> JScrollPane();</span><br><span class="line">jp.setViewportView(jt);</span><br><span class="line"></span><br><span class="line">jf.add(jp);</span><br><span class="line">jm.add(t1) ;  </span><br><span class="line">jm.add(t2) ;    </span><br><span class="line">jm.add(t3) ; </span><br><span class="line">jm.addSeparator();</span><br><span class="line">jm.add(t4) ;  </span><br><span class="line">JMenuBar  br=<span class="keyword">new</span>  JMenuBar() ;  </span><br><span class="line">br.add(jm) ;      </span><br><span class="line">jf.setJMenuBar(br) ;  </span><br><span class="line">jf.setVisible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">jd=<span class="keyword">new</span> JFileChooser();</span><br><span class="line">jd.setDialogTitle(<span class="string">"文件选择"</span>);</span><br><span class="line"></span><br><span class="line">t1.addActionListener(<span class="keyword">new</span> ActionListener()</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span></span></span><br><span class="line"><span class="function">	</span>&#123;		      </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (JFileChooser.APPROVE_OPTION == jd.showOpenDialog(jf)) </span><br><span class="line">&#123;</span><br><span class="line">     	Path.setLength(<span class="number">0</span>);</span><br><span class="line">		File f=jd.getSelectedFile();</span><br><span class="line">		jf.setTitle(f.getName());</span><br><span class="line">		Path.append(f.getAbsolutePath());</span><br><span class="line">		System.out.println(Path.toString());</span><br><span class="line">		<span class="keyword">try</span> </span><br><span class="line">		&#123;			 </span><br><span class="line">		   InputStreamReader isr=<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">			 BufferedReader br=<span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">			 String s1=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">while</span>((s1=br.readLine())!=<span class="keyword">null</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				 Contenct.append(s1);</span><br><span class="line">				Contenct.append(<span class="string">"\r\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		    jt.setText(Contenct.toString());</span><br><span class="line">		    Contenct.setLength(<span class="number">0</span>);</span><br><span class="line">			br.close();</span><br><span class="line">		   isr.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e1)</span><br><span class="line">		&#123;	 </span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">			</span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;  </span><br><span class="line">		 </span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t2.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	 </span><br><span class="line">		 <span class="keyword">if</span>(Path.length()&gt;<span class="number">0</span>)</span><br><span class="line">		 &#123;</span><br><span class="line">			 File f=<span class="keyword">new</span> File(Path.toString());</span><br><span class="line">			 jf.setTitle(f.getName());</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				OutputStreamWriter osw=<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 &#123;</span><br><span class="line">			 		 </span><br><span class="line">			 <span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">			 &#123;</span><br><span class="line">				 Path.setLength(<span class="number">0</span>);</span><br><span class="line">				 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">				 </span><br><span class="line">				 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">				 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">				 jf.setTitle(f.getName());</span><br><span class="line">				 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">				 &#123;</span><br><span class="line">					 <span class="keyword">try</span> &#123;</span><br><span class="line">						f.createNewFile();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">				 &#125;</span><br><span class="line"> 					<span class="keyword">try</span> &#123;</span><br><span class="line"> 						OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);</span><br><span class="line">						BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">						bw.write(jt.getText());</span><br><span class="line">						bw.close();</span><br><span class="line">						osw.close();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">						</span><br><span class="line">						e1.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">					 </span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);  </span><br><span class="line">t3.addActionListener(<span class="keyword">new</span> ActionListener() &#123;	</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123; </span><br><span class="line">	<span class="keyword">if</span>(JFileChooser.APPROVE_OPTION==jd.showSaveDialog(jf))</span><br><span class="line">	&#123;</span><br><span class="line">		 Path.setLength(<span class="number">0</span>);</span><br><span class="line">		 String m=jd.getSelectedFile().getAbsolutePath();</span><br><span class="line">		 Path.append(m+<span class="string">".txt"</span>);</span><br><span class="line">		 File f=<span class="keyword">new</span> File(m+<span class="string">".txt"</span>);</span><br><span class="line">		 jf.setTitle(f.getName());</span><br><span class="line">		 <span class="keyword">if</span>(!f.exists())</span><br><span class="line">		 &#123;</span><br><span class="line">			 <span class="keyword">try</span> &#123;</span><br><span class="line">				f.createNewFile();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		 &#125;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">				</span><br><span class="line">					OutputStreamWriter osw= <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"UTF-8"</span>);			 </span><br><span class="line">				BufferedWriter bw=<span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">				bw.write(jt.getText());</span><br><span class="line">				bw.close();</span><br><span class="line">				osw.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			 </span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">t4.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">		System.exit(<span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>FileTest类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		 EasyFile f=<span class="keyword">new</span> EasyFile();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h4><p>未实现退出时提醒用户保存的功能</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/数组学习_一维数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/29/数组学习_一维数组/" itemprop="url">CSharp笔记————一维数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T18:53:00+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSharp/" itemprop="url" rel="index">
+                    <span itemprop="name">CSharp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>数组是一个存储相同类型元素的固定大小的顺序集合。数组是用来存储数据的集合，通常认为数组是一个同一类型变量的集合。</p>
+<p>声明数组变量并不是声明 number0、number1、…、number99 一个个单独的变量，而是声明一个就像 numbers 这样的变量，然后使用 numbers[0]、numbers[1]、…、numbers[99] 来表示一个个单独的变量。数组中某个指定的元素是通过索引来访问的。</p>
+<p>所有的数组都是由连续的内存位置组成的。最低的地址对应第一个元素，最高的地址对应最后一个元素。</p>
+<h3 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int num = 5;</span><br><span class="line">int[] array1 = new int[num];//数组是引用类型</span><br><span class="line">//类型 数组名 new 类型 数组长度</span><br><span class="line"></span><br><span class="line">int[] array2;//可以在声明时不分配空间</span><br><span class="line">array2 = new int[5];</span><br><span class="line">array2 = array1;</span><br><span class="line"></span><br><span class="line">int[] array1 = new int[num]&#123;1,2,3,4,5&#125;;只能在声明的时候这样写，大括号中的元素个数不能多不能少</span><br></pre></td></tr></table></figure>
+<h3 id="数组元素的赋值"><a href="#数组元素的赋值" class="headerlink" title="数组元素的赋值"></a>数组元素的赋值</h3><p>可以通过上述方法在声明时赋值<br>也可以单独给某数组元素赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double[] balance = new double[10];</span><br><span class="line">balance[0] = 4500.0;</span><br></pre></td></tr></table></figure>
+<p>也可以将数组指向某个已经存在初值的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int [] marks = new int[]  &#123; 99,  98, 92, 97, 95&#125;;</span><br><span class="line">int[] score = marks;</span><br></pre></td></tr></table></figure>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><p>找出数组中最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int[] maxArray = new int[10];</span><br><span class="line">for (int i = 0;i &lt; 6;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        maxArray[i] = Convert.ToInt32( Console.ReadLine());</span><br><span class="line">    &#125;</span><br><span class="line">ArrayList list = new ArrayList(maxArray);</span><br><span class="line">list.Sort();</span><br><span class="line">Console.WriteLine(list[list.Count-1]);</span><br></pre></td></tr></table></figure>
+<p>给数组的100元素以随机数赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int[] randomArray = new int[100];</span><br><span class="line">Random r = new Random();</span><br><span class="line">for (int i = 0; i &lt; randomArray.Length; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    randomArray[i] = r.Next(1,100);</span><br><span class="line">  &#125;</span><br><span class="line"> ArrayList list1 = new ArrayList(randomArray);</span><br><span class="line">list1.Sort();</span><br><span class="line">Console.Write(list1[list1.Count-1]);</span><br></pre></td></tr></table></figure>
 
           
         
@@ -865,6 +1013,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xingren Lingjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杏仁没有猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
+                2018-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
+<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
+<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
+<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -984,159 +1285,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pet pet;</span><br><span class="line">pet.name = &quot;Tom&quot;;</span><br><span class="line">pet.age = 3;</span><br></pre></td></tr></table></figure>
 <h1 id="引用类型与值类型"><a href="#引用类型与值类型" class="headerlink" title="引用类型与值类型"></a>引用类型与值类型</h1><p>类是引用类型，结构是值类型</p>
 <h1 id="ref参数与out参数"><a href="#ref参数与out参数" class="headerlink" title="ref参数与out参数"></a>ref参数与out参数</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/C#类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/C#类/" itemprop="url">C#笔记——类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-29T10:30:00+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>类：<br>程序的数据和功能被组织为逻辑上相关的数据项和函数的封装集合，被称为类，类是一个能储存并执行代码的数据结构。他包含 数据成员 和 函数成员。  </p>
-<p>数据成员：字段，常量。表示类或类的实例相关的数据（有什么）<br>函数成员：方法，属性，运算符，索引器，事件。表示类的实例能执行的操作（能干什么）  </p>
-<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>关键字class</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyExcellentClass</span><br><span class="line">&#123;</span><br><span class="line">    成员声明</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>字段和方法是最重要的类成员类型。字段是数据成员，方法是函数成员。</p>
-<h3 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h3><p>字段是隶属于类的变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    int MyField;//一个整型字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果没有初始化语句，字段的值会被编译器设为默认值，默认值为字段的类型决定。值类型的默认值为1，bool类型的默认值为法拉瑟，引用类型的默认值为null。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyClass</span><br><span class="line">&#123;</span><br><span class="line">    void myFunction（）//返回类型 方法名（参数列表）</span><br><span class="line">    &#123;</span><br><span class="line">        方法体</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建类的实例"><a href="#创建类的实例" class="headerlink" title="创建类的实例"></a>创建类的实例</h2><p>类是引用类型，所以要为数据引用和实际数据都申请内存。此时要用到 new 运算符<br>new 运算符为指定类型的实例分配并初始化内存，依据类型的不同从栈或堆里分配。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyClass a = new MyClass();</span><br></pre></td></tr></table></figure>
-<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public<br>private<br>protected<br>internal<br>protected internal  </p>
-
           
         
       
@@ -1609,154 +1757,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/java实验(1)(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xingren Lingjun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杏仁没有猫">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/25/java实验(1)(1)/" itemprop="url">Java实验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T10:53:00+08:00">
-                2018-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="实验一-Java-程序的编辑、编译、运行环境"><a href="#实验一-Java-程序的编辑、编译、运行环境" class="headerlink" title="实验一 Java 程序的编辑、编译、运行环境"></a>实验一 Java 程序的编辑、编译、运行环境</h2><h3 id="实现一个整数N的阶乘运算，N为固定常数（N≦20）。"><a href="#实现一个整数N的阶乘运算，N为固定常数（N≦20）。" class="headerlink" title="实现一个整数N的阶乘运算，N为固定常数（N≦20）。"></a>实现一个整数N的阶乘运算，N为固定常数（N≦20）。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Factorial</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">long</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(i ==<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  <span class="keyword">return</span> i*factorial(i-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">long</span> i = <span class="number">19</span>;</span><br><span class="line">System.out.println(factorial(i));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="实验二-类和对象的使用"><a href="#实验二-类和对象的使用" class="headerlink" title="实验二 类和对象的使用"></a>实验二 类和对象的使用</h2><h3 id="（1）计算两个点（Point类对象）的距离"><a href="#（1）计算两个点（Point类对象）的距离" class="headerlink" title="（1）计算两个点（Point类对象）的距离"></a>（1）计算两个点（Point类对象）的距离</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*实现一个Point类，</span></span><br><span class="line"><span class="comment">该类包含表示坐标的两个int型变量x、 y，</span></span><br><span class="line"><span class="comment">构造方法Point()和Point(int xx, int yy),</span></span><br><span class="line"><span class="comment">返回x值和y值的int  getX()和int getY()方法，</span></span><br><span class="line"><span class="comment">计算两点间距离的double distance(Point)方法。</span></span><br><span class="line"><span class="comment">其中计算平方根的方法是Math.sqrt()，如：</span></span><br><span class="line"><span class="comment">double d=Math.sqtr(2);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> Point p1 = <span class="keyword">new</span> Point(<span class="number">4</span>,<span class="number">7</span>);</span><br><span class="line"> Point p2 = <span class="keyword">new</span> Point(<span class="number">7</span>,<span class="number">8</span>);</span><br><span class="line"> System.out.println(<span class="string">"两点间距离为"</span>+p1.getDistance(p2));</span><br><span class="line"> p1.setX(<span class="number">5</span>);</span><br><span class="line"> p1.setY(<span class="number">6</span>);</span><br><span class="line"> System.out.println(<span class="string">"两点间距离为"</span>+p1.getDistance(p2));</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"> </span><br><span class="line"> Point()</span><br><span class="line"> &#123;</span><br><span class="line">  x = <span class="number">0</span>;</span><br><span class="line">  y = <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.x = x;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> y;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Math.sqrt((x - p.getX())*(x - p.getX()) + (y - p.getY())*(y-p.getY()) ;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="（2）实现一个Circle类"><a href="#（2）实现一个Circle类" class="headerlink" title="（2）实现一个Circle类"></a>（2）实现一个Circle类</h3><p>包含表示圆心的Point型变量center，表示半径的int  radius变量，以及构造方法Circle()、Circle(int xx,int yy,int r)、Circle(Point c,int r)，返回周长和面积的int perimeter()、double area()方法，返回两个圆是否为同一个圆（返回0）、同心圆（返回1）、相交的圆（返回2）、分离的圆（返回3）、包含的圆（返回4）等关系的int relation(Circle c)等方法。PI值可以用Math.PI常量。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Circle c1 = <span class="keyword">new</span> Circle(<span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>),<span class="number">5</span>);</span><br><span class="line">Circle c2 = <span class="keyword">new</span> Circle(<span class="keyword">new</span> Point(<span class="number">4</span>,<span class="number">5</span>),<span class="number">9</span>);</span><br><span class="line">System.out.println(<span class="string">"perimeter is:"</span>+c1.perimeter());</span><br><span class="line">System.out.println(<span class="string">"area is:"</span>+c1.area());</span><br><span class="line">System.out.println(c1.relation(c2));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"> </span><br><span class="line"> Point()</span><br><span class="line"> &#123;</span><br><span class="line">  x = <span class="number">0</span>;</span><br><span class="line">  y = <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.x = x;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> y;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Math.sqrt((x - p.getX())*(x - p.getX()) + (y - p.getY())*(y-p.getY()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Point center ;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> radius;</span><br><span class="line"></span><br><span class="line">Circle()</span><br><span class="line">&#123;</span><br><span class="line"> center = <span class="keyword">new</span> Point();</span><br><span class="line"> radius = <span class="number">1</span>;<span class="comment">//注意圆的半径的取值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle(Point center,<span class="keyword">int</span> radius)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">this</span>.center = center;</span><br><span class="line"><span class="keyword">this</span>.radius = radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCenter</span><span class="params">(Point center)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.center = center;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Point <span class="title">getCenter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> center;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">int</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.radius = radius;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRadius</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> radius;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> Math.PI*radius*<span class="number">2</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">area</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">return</span> Math.PI*radius*radius;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">relation</span><span class="params">(Circle c)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">if</span>(center.getX()==getCenter().getX()&amp;&amp;center.getY()==getCenter().getY())</span><br><span class="line">	     &#123;</span><br><span class="line">			 <span class="keyword">if</span>(c.getRadius() == <span class="keyword">this</span>.radius)</span><br><span class="line">				 <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			 <span class="keyword">else</span> </span><br><span class="line">				 <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &gt; c.center.getDistance(center)&amp;&amp;Math.abs(c.getRadius()-radius) &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">		 </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="实验三-继承性"><a href="#实验三-继承性" class="headerlink" title="实验三 继承性"></a>实验三 继承性</h2><p>（1）    编写颜色类Color和具有颜色值的ColoredCircle类。<br>（2）    Color类的实现要求包含三个颜色分量red、green和blue（取值范围为0-255）；<br>（3）    编写测试类ColoredCircleTest，并在该类的main方法中调用ColoredCircle类的如下方法，输出返回值(如有必要)，以验证其正确性  :<br>所有构造方法,计算周长的perimeter()方法,计算面积的area()方法,所有设置和获取颜色值的方法,判断两个ColoredCircle对象的关系的方法relation()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		ColoredCircle cc1 = <span class="keyword">new</span> ColoredCircle();</span><br><span class="line">		cc1.setRadius(<span class="number">10</span>);</span><br><span class="line">		cc1.setCenter(<span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">		cc1.setBorderColor(<span class="keyword">new</span> Color(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">		cc1.setCenterColor(<span class="keyword">new</span> Color(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>));</span><br><span class="line">		ColoredCircle cc2 = <span class="keyword">new</span> ColoredCircle();</span><br><span class="line">		cc2.setRadius(<span class="number">55</span>);</span><br><span class="line">		cc2.setCenter(<span class="keyword">new</span> Point(<span class="number">10</span>,<span class="number">2</span>));</span><br><span class="line">		cc2.setBorderColor(<span class="keyword">new</span> Color(<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>));</span><br><span class="line">		cc2.setCenterColor(<span class="keyword">new</span> Color(<span class="number">70</span>,<span class="number">224</span>,<span class="number">1</span>));</span><br><span class="line">		System.out.println(<span class="string">"perimeter is:"</span>+cc1.perimeter());</span><br><span class="line">		System.out.println(<span class="string">"area is:"</span>+cc2.area());</span><br><span class="line">		System.out.println(cc1.relation(cc2));</span><br><span class="line">		System.out.println(cc1.getBorderColor().getBlue());</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"> </span><br><span class="line"> Point()</span><br><span class="line"> &#123;</span><br><span class="line">  x = <span class="number">0</span>;</span><br><span class="line">  y = <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.x = x;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> y;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Math.sqrt((x - p.getX())*(x - p.getX()) + (y - p.getY())*(y-p.getY()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Point center ;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> radius;</span><br><span class="line"></span><br><span class="line">Circle()</span><br><span class="line">&#123;</span><br><span class="line"> center = <span class="keyword">new</span> Point();</span><br><span class="line"> radius = <span class="number">1</span>;<span class="comment">//注意圆的半径的取值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle(Point center,<span class="keyword">int</span> radius)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">this</span>.center = center;</span><br><span class="line"><span class="keyword">this</span>.radius = radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCenter</span><span class="params">(Point center)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.center = center;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Point <span class="title">getCenter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> center;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">int</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.radius = radius;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRadius</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> radius;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> Math.PI*radius*<span class="number">2</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">area</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">return</span> Math.PI*radius*radius;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">relation</span><span class="params">(Circle c)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">if</span>(center.getX()==getCenter().getX()&amp;&amp;center.getY()==getCenter().getY())</span><br><span class="line">	     &#123;</span><br><span class="line">			 <span class="keyword">if</span>(c.getRadius() == <span class="keyword">this</span>.radius)</span><br><span class="line">				 <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			 <span class="keyword">else</span> </span><br><span class="line">				 <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &gt; c.center.getDistance(center)&amp;&amp;Math.abs(c.getRadius()-radius) &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">		 </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Color</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> red;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> green;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> blue;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Color</span><span class="params">(<span class="keyword">int</span> red, <span class="keyword">int</span> green, <span class="keyword">int</span> blue)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.red = red;</span><br><span class="line">		<span class="keyword">this</span>.green = green;</span><br><span class="line">		<span class="keyword">this</span>.blue = blue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Color</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		red = <span class="number">0</span>;</span><br><span class="line">		green = <span class="number">0</span>;</span><br><span class="line">		blue = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> red;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRed</span><span class="params">(<span class="keyword">int</span> red)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.red = red;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getGreen</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> green;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGreen</span><span class="params">(<span class="keyword">int</span> green)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.green = green;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBlue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> blue;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBlue</span><span class="params">(<span class="keyword">int</span> blue)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.blue = blue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColoredCircle</span> <span class="keyword">extends</span> <span class="title">Circle</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Color centerColor;</span><br><span class="line">	<span class="keyword">private</span> Color borderColor;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">(Color centerColor, Color borderCorlor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.centerColor = centerColor;</span><br><span class="line">		<span class="keyword">this</span>.borderColor = borderCorlor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		centerColor = <span class="keyword">new</span> Color();</span><br><span class="line">		borderColor = <span class="keyword">new</span> Color();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">(<span class="keyword">int</span> radius,Point center,Color centercolor,Color bordercolor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">	    <span class="keyword">this</span>.setRadius(radius);</span><br><span class="line">	    <span class="keyword">this</span>.setCenter(center);</span><br><span class="line">	    centerColor = <span class="keyword">new</span> Color();</span><br><span class="line">		borderColor = <span class="keyword">new</span> Color();</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Color <span class="title">getCenterColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> centerColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCenterColor</span><span class="params">(Color centerColor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.centerColor = centerColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Color <span class="title">getBorderColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> borderColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBorderColor</span><span class="params">(Color borderColor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.borderColor = borderColor;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="实验四-Object类"><a href="#实验四-Object类" class="headerlink" title="实验四 Object类"></a>实验四 Object类</h2><p>重写equals方法和toString方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		ColoredCircle cc1 = <span class="keyword">new</span> ColoredCircle();</span><br><span class="line">		cc1.setRadius(<span class="number">10</span>);</span><br><span class="line">		cc1.setCenter(<span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">		cc1.setBorderColor(<span class="keyword">new</span> Color(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">		cc1.setCenterColor(<span class="keyword">new</span> Color(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>));</span><br><span class="line">		ColoredCircle cc2 = <span class="keyword">new</span> ColoredCircle();</span><br><span class="line">		cc2.setRadius(<span class="number">55</span>);</span><br><span class="line">		cc2.setCenter(<span class="keyword">new</span> Point(<span class="number">10</span>,<span class="number">2</span>));</span><br><span class="line">		cc2.setBorderColor(<span class="keyword">new</span> Color(<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>));</span><br><span class="line">		cc2.setCenterColor(<span class="keyword">new</span> Color(<span class="number">70</span>,<span class="number">224</span>,<span class="number">1</span>));</span><br><span class="line">		System.out.println(<span class="string">"perimeter is:"</span>+cc1.perimeter());</span><br><span class="line">		System.out.println(<span class="string">"area is:"</span>+cc2.area());</span><br><span class="line">		System.out.println(cc1.relation(cc2));</span><br><span class="line">		System.out.println(cc1.getBorderColor().getBlue());</span><br><span class="line">		Point p1 = <span class="keyword">new</span> Point(<span class="number">5</span>,<span class="number">5</span>);</span><br><span class="line">		Point p2 = <span class="keyword">new</span> Point(<span class="number">5</span>,<span class="number">5</span>);</span><br><span class="line">		System.out.println(p1.equals(p2));</span><br><span class="line">		System.out.println(p1);</span><br><span class="line">		System.out.println(cc1.equals(cc2));</span><br><span class="line">		System.out.println(cc1);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"> </span><br><span class="line"> Point()</span><br><span class="line"> &#123;</span><br><span class="line">  x = <span class="number">0</span>;</span><br><span class="line">  y = <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.x = x;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.y = y;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> y;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">  Point p=(Point)obj;</span><br><span class="line">  <span class="keyword">if</span>(x==p.x&amp;&amp;y==p.y)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span>(<span class="string">"x is:"</span>+<span class="keyword">this</span>.x+<span class="string">" "</span>+<span class="string">"y is:"</span>+<span class="keyword">this</span>.y);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Math.sqrt((x - p.getX())*(x - p.getX()) + (y - p.getY())*(y-p.getY()));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Point center ;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> radius;</span><br><span class="line"></span><br><span class="line">Circle()</span><br><span class="line">&#123;</span><br><span class="line"> center = <span class="keyword">new</span> Point();</span><br><span class="line"> radius = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle(Point center,<span class="keyword">int</span> radius)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">this</span>.center = center;</span><br><span class="line"><span class="keyword">this</span>.radius = radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCenter</span><span class="params">(Point center)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.center = center;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Point <span class="title">getCenter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> center;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">int</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.radius = radius;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRadius</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">return</span> radius;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 Circle c = (Circle)obj;</span><br><span class="line">	  <span class="keyword">if</span> (<span class="keyword">this</span>.radius == c.getRadius()&amp;&amp;center.getX()==c.getCenter().getX()&amp;&amp;center.getY()==c.getCenter().getY())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">return</span> (<span class="string">"center is: "</span>+<span class="keyword">this</span>.center+<span class="string">"radius is:"</span>+<span class="keyword">this</span>.radius);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">perimeter</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> Math.PI*radius*<span class="number">2</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">area</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">return</span> Math.PI*radius*radius;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">relation</span><span class="params">(Circle c)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">	 <span class="keyword">if</span>(center.getX()==getCenter().getX()&amp;&amp;center.getY()==getCenter().getY())</span><br><span class="line">	     &#123;</span><br><span class="line">			 <span class="keyword">if</span>(c.getRadius() == <span class="keyword">this</span>.radius)</span><br><span class="line">				 <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			 <span class="keyword">else</span> </span><br><span class="line">				 <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">if</span>(c.getRadius()+radius &gt; c.center.getDistance(center)&amp;&amp;Math.abs(c.getRadius()-radius) &lt; c.center.getDistance(center))</span><br><span class="line">			 <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">		 <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">		 </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Color</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> red;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> green;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> blue;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Color</span><span class="params">(<span class="keyword">int</span> red, <span class="keyword">int</span> green, <span class="keyword">int</span> blue)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.red = red;</span><br><span class="line">		<span class="keyword">this</span>.green = green;</span><br><span class="line">		<span class="keyword">this</span>.blue = blue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Color</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		red = <span class="number">0</span>;</span><br><span class="line">		green = <span class="number">0</span>;</span><br><span class="line">		blue = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> red;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRed</span><span class="params">(<span class="keyword">int</span> red)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.red = red;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getGreen</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> green;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGreen</span><span class="params">(<span class="keyword">int</span> green)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.green = green;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getBlue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> blue;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBlue</span><span class="params">(<span class="keyword">int</span> blue)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.blue = blue;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColoredCircle</span> <span class="keyword">extends</span> <span class="title">Circle</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Color centerColor;</span><br><span class="line">	<span class="keyword">private</span> Color borderColor;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">(Color centerColor, Color borderCorlor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.centerColor = centerColor;</span><br><span class="line">		<span class="keyword">this</span>.borderColor = borderCorlor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		centerColor = <span class="keyword">new</span> Color();</span><br><span class="line">		borderColor = <span class="keyword">new</span> Color();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColoredCircle</span><span class="params">(<span class="keyword">int</span> radius,Point center,Color centercolor,Color bordercolor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">	    <span class="keyword">this</span>.setRadius(radius);</span><br><span class="line">	    <span class="keyword">this</span>.setCenter(center);</span><br><span class="line">	    centerColor = <span class="keyword">new</span> Color();</span><br><span class="line">		borderColor = <span class="keyword">new</span> Color();</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Color <span class="title">getCenterColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> centerColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCenterColor</span><span class="params">(Color centerColor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.centerColor = centerColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Color <span class="title">getBorderColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> borderColor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBorderColor</span><span class="params">(Color borderColor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.borderColor = borderColor;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1807,7 +1807,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
